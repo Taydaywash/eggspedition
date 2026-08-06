@@ -163,3 +163,23 @@ placeholder_state_color = Color(1, 0, 1, 1)
 script = ExtResource("14_o3h8g")
 jump_velocity = 1200
 move_speed = 500
+
+[node name="YolkIdle" type="Node" parent="StateMachine" unique_id=1826340498]
+script = ExtResource("15_1e7my")
+metadata/_custom_type_script = "uid://8no0e8ov66oa"
+
+[node name="YolkWalk" type="Node" parent="StateMachine" unique_id=83157303]
+script = ExtResource("15_1e7my")
+metadata/_custom_type_script = "uid://8no0e8ov66oa"
+
+[node name="YolkJump" type="Node" parent="StateMachine" unique_id=1599529363]
+script = ExtResource("15_1e7my")
+metadata/_custom_type_script = "uid://8no0e8ov66oa"
+
+[node name="YolkFall" type="Node" parent="StateMachine" unique_id=1872056286]
+script = ExtResource("15_1e7my")
+metadata/_custom_type_script = "uid://8no0e8ov66oa"
+
+[node name="YolkClimb" type="Node" parent="StateMachine" unique_id=984047742]
+script = ExtResource("15_1e7my")
+metadata/_custom_type_script = "uid://8no0e8ov66oa"
