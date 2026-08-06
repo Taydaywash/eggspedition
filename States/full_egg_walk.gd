@@ -10,6 +10,9 @@ func activate():
 	super()
 
 func process_input(event : InputEvent) -> State:
+	if event.is_action_pressed("jump"):
+		if player.is_on_floor():
+			return state_machine.full_egg_hop
 	if (event.is_action_pressed("move_left") and player.velocity.x >= 0 and (sprite.frame == 3 or sprite.frame == 4)):
 		if player.is_on_floor():
 			player.velocity.x = -jump_horizontal_velocity

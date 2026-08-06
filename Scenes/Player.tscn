@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://olunikc8cf75" path="res://States/full_egg_fall.gd" id="7_52ee3"]
 [ext_resource type="Texture2D" uid="uid://d0mt7kqaw816v" path="res://Assets/full_egg/roll/roll0004.png" id="7_lslt6"]
 [ext_resource type="Texture2D" uid="uid://bxadbxg7u8exl" path="res://Assets/full_egg/roll/roll0005.png" id="8_ulo2v"]
+[ext_resource type="Script" uid="uid://b3o458fo3o5ay" path="res://States/full_egg_hop.gd" id="14_o3h8g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nn08x"]
 animations = [{
@@ -74,13 +75,14 @@ frame_progress = 0.94106835
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622051724]
 shape = SubResource("RectangleShape2D_kyqiw")
 
-[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_fall")]
+[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_fall", "full_egg_hop")]
 script = ExtResource("3_52ee3")
 starting_state = NodePath("FullEggIdle")
 full_egg_idle = NodePath("FullEggIdle")
 full_egg_walk = NodePath("FullEggWalk")
 full_egg_jump = NodePath("FullEggJump")
 full_egg_fall = NodePath("FullEggFall")
+full_egg_hop = NodePath("FullEggHop")
 
 [node name="FullEggIdle" type="Node" parent="StateMachine" unique_id=1699185401]
 script = ExtResource("4_bhhdu")
@@ -95,10 +97,15 @@ animation_name = "full_egg_roll"
 [node name="FullEggJump" type="Node" parent="StateMachine" unique_id=81668169]
 script = ExtResource("6_yoq75")
 jump_velocity = 1300
-move_speed = 600
+move_speed = 500
 placeholder_state_color = Color(1, 0, 0, 1)
 
 [node name="FullEggFall" type="Node" parent="StateMachine" unique_id=2021791592]
 script = ExtResource("7_52ee3")
-move_speed = 600
+move_speed = 500
 placeholder_state_color = Color(1, 0, 1, 1)
+
+[node name="FullEggHop" type="Node" parent="StateMachine" unique_id=316554779]
+script = ExtResource("14_o3h8g")
+jump_velocity = 800
+move_speed = 500

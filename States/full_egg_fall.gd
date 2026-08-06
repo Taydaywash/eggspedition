@@ -7,6 +7,7 @@ var fall_distance: float = 0.0
 
 func activate():
 	peak_y = player.global_position.y
+	super()
 
 func process_physics(delta):
 	var input_direction = Input.get_axis("move_left","move_right")

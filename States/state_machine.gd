@@ -10,6 +10,7 @@ var sprite : AnimatedSprite2D
 @export var full_egg_walk : State
 @export var full_egg_jump : State
 @export var full_egg_fall: State
+@export var full_egg_hop: State
 
 func initialize_state_machine() -> void:
 	for child in get_children():
