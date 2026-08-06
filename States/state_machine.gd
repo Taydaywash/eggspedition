@@ -3,7 +3,7 @@ class_name StateMachine
 
 var state : State
 var player : Player
-var sprite : Sprite2D
+var sprite : AnimatedSprite2D
 @export var starting_state : State
 
 @export var full_egg_idle : State

@@ -3,16 +3,60 @@
 [ext_resource type="Script" uid="uid://66ego8xdtp20" path="res://States/player.gd" id="1_nn08x"]
 [ext_resource type="Texture2D" uid="uid://dwmxdoc6bu6vn" path="res://Assets/egg.png" id="1_rpqav"]
 [ext_resource type="Script" uid="uid://bwtrifdxs3ftp" path="res://States/state_machine.gd" id="3_52ee3"]
+[ext_resource type="Texture2D" uid="uid://crexmtsvqcaw0" path="res://Assets/full_egg/roll/roll0000.png" id="3_miouo"]
 [ext_resource type="Script" uid="uid://ba7si4g1u0gx7" path="res://States/full_egg_idle.gd" id="4_bhhdu"]
+[ext_resource type="Texture2D" uid="uid://bxqybkoa6bxbl" path="res://Assets/full_egg/roll/roll0001.png" id="4_o3h8g"]
+[ext_resource type="Texture2D" uid="uid://d3g5lysvvk7b5" path="res://Assets/full_egg/roll/roll0002.png" id="5_1e7my"]
 [ext_resource type="Script" uid="uid://bgbbve4jf1tk5" path="res://States/full_egg_walk.gd" id="5_megsn"]
+[ext_resource type="Texture2D" uid="uid://b8q0s72t7pket" path="res://Assets/full_egg/roll/roll0003.png" id="6_arntx"]
 [ext_resource type="Script" uid="uid://ccqa7jgp261s2" path="res://States/full_egg_jump.gd" id="6_yoq75"]
 [ext_resource type="Script" uid="uid://olunikc8cf75" path="res://States/full_egg_fall.gd" id="7_52ee3"]
+[ext_resource type="Texture2D" uid="uid://d0mt7kqaw816v" path="res://Assets/full_egg/roll/roll0004.png" id="7_lslt6"]
+[ext_resource type="Texture2D" uid="uid://bxadbxg7u8exl" path="res://Assets/full_egg/roll/roll0005.png" id="8_ulo2v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn08x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rpqav")
+}],
+"loop": 1,
+"name": &"full_egg_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_miouo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o3h8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1e7my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_arntx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_arntx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lslt6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ulo2v")
+}],
+"loop": 1,
+"name": &"full_egg_roll",
+"speed": 12.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
 size = Vector2(112, 176)
 
 [node name="Player" type="CharacterBody2D" unique_id=327763569 node_paths=PackedStringArray("state_machine", "sprite")]
 collision_layer = 2
+floor_constant_speed = true
 script = ExtResource("1_nn08x")
 jump_speed = 1000.0
 max_fall_speed = 2000.0
@@ -21,8 +65,11 @@ move_speed = 700.0
 state_machine = NodePath("StateMachine")
 sprite = NodePath("Egg")
 
-[node name="Egg" type="Sprite2D" parent="." unique_id=1710872001]
-texture = ExtResource("1_rpqav")
+[node name="Egg" type="AnimatedSprite2D" parent="." unique_id=1851985346]
+sprite_frames = SubResource("SpriteFrames_nn08x")
+animation = &"full_egg_roll"
+autoplay = "full_egg_idle"
+frame_progress = 0.94106835
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622051724]
 shape = SubResource("RectangleShape2D_kyqiw")
@@ -41,8 +88,9 @@ placeholder_state_color = Color(0.5372549, 1, 1, 1)
 
 [node name="FullEggWalk" type="Node" parent="StateMachine" unique_id=2016896665]
 script = ExtResource("5_megsn")
-move_speed = 600
+move_speed = 500
 placeholder_state_color = Color(0.49803922, 1, 0.5137255, 1)
+animation_name = "full_egg_roll"
 
 [node name="FullEggJump" type="Node" parent="StateMachine" unique_id=81668169]
 script = ExtResource("6_yoq75")

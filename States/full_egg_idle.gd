@@ -1,5 +1,9 @@
 extends State
 
+func activate():
+	player.velocity.x = 0
+	super()
+
 func process_input(event : InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		if player.is_on_floor():
