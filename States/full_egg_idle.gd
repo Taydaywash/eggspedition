@@ -7,7 +7,7 @@ func activate():
 func process_input(event : InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		if player.is_on_floor():
-			return state_machine.full_egg_jump
+			return state_machine.full_egg_hop
 	return
 
 func process_physics(delta) -> State:
