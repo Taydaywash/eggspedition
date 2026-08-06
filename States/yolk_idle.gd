@@ -7,7 +7,7 @@ func activate():
 func process_input(event : InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		if player.is_on_floor():
-			return state_machine.full_egg_jump
+			return state_machine.yolk_jump
 	return
 
 func process_physics(delta) -> State:
@@ -15,7 +15,7 @@ func process_physics(delta) -> State:
 	player.velocity.y = move_toward(player.velocity.y,player.max_fall_speed,delta * player.gravity)
 	player.move_and_slide()
 	if input_direction:
-		return state_machine.full_egg_walk
-	if player.velocity.y >= 1:
-		return state_machine.full_egg_fall
+		return state_machine.yolk_walk
+	if !player.is_on_floor:
+		return state_machine.yolk_fall
 	return

@@ -14,6 +14,8 @@ func process_physics(delta) -> State:
 	var input_direction = Input.get_axis("move_left","move_right")
 	player.velocity.y = move_toward(player.velocity.y,player.max_fall_speed,delta * player.gravity)
 	player.move_and_slide()
+	if state_machine.full_egg_fall.is_cracked:
+		return state_machine.yolk_idle
 	if input_direction:
 		return state_machine.full_egg_walk
 	if player.velocity.y >= 1:

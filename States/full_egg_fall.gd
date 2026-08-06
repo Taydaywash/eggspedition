@@ -4,10 +4,12 @@ extends State
 
 var peak_y: float = 0.0
 var fall_distance: float = 0.0
+var is_cracked: float = false
 
 func activate():
-	peak_y = player.global_position.y
 	super()
+	is_cracked = false
+	peak_y = player.global_position.y
 
 func process_physics(delta):
 	var input_direction = Input.get_axis("move_left","move_right")
@@ -17,7 +19,8 @@ func process_physics(delta):
 	player.move_and_slide()
 	if player.velocity.y == 0:
 		if player.velocity.x:
-			return state_machine.full_egg_walk
+			#return state_machine.full_egg_walk
+			pass
 		return state_machine.full_egg_idle
 		
 	if player.global_position.y < peak_y:
@@ -26,7 +29,10 @@ func process_physics(delta):
 	return
 	
 func deactivate():
+	super()
 	fall_distance = abs(peak_y - player.global_position.y)
 	print("Fallen Pixels: ", fall_distance)
+	if fall_distance > 100:
+		is_cracked = true
+	
 	peak_y = player.global_position.y
-	super()

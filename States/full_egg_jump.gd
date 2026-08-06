@@ -1,11 +1,11 @@
 extends State
 
-@export var jump_velocity : int = 50
-@export var move_speed : int
+@export var jump_velocity : int = 1000
 
 func activate():
-	player.velocity.y = -jump_velocity
 	super()
+	player.velocity.x = 0
+	player.velocity.y = -jump_velocity
 
 func process_physics(delta):
 	#var input_direction = Input.get_axis("move_left","move_right")

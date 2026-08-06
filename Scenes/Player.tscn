@@ -18,7 +18,12 @@
 [ext_resource type="Script" uid="uid://olunikc8cf75" path="res://States/full_egg_fall.gd" id="7_52ee3"]
 [ext_resource type="Texture2D" uid="uid://ew0eyvna1a74" path="res://Assets/cracked_egg/roll0005.png" id="7_70hv0"]
 [ext_resource type="Texture2D" uid="uid://d0mt7kqaw816v" path="res://Assets/full_egg/roll/roll0004.png" id="7_lslt6"]
+[ext_resource type="Script" uid="uid://rv0rllantypa" path="res://States/yolk_idle.gd" id="8_glx4g"]
 [ext_resource type="Texture2D" uid="uid://bxadbxg7u8exl" path="res://Assets/full_egg/roll/roll0005.png" id="8_ulo2v"]
+[ext_resource type="Script" uid="uid://6bl3voaqowxu" path="res://States/yolk_walk.gd" id="9_miouo"]
+[ext_resource type="Script" uid="uid://byri866icvwmx" path="res://States/yolk_jump.gd" id="10_o3h8g"]
+[ext_resource type="Script" uid="uid://ck37i221ey0h1" path="res://States/yolk_fall.gd" id="11_1e7my"]
+[ext_resource type="Script" uid="uid://c8ydk7crxlga" path="res://States/yolk_climb.gd" id="12_arntx"]
 [ext_resource type="Script" uid="uid://b3o458fo3o5ay" path="res://States/full_egg_hop.gd" id="14_o3h8g"]
 [ext_resource type="Texture2D" uid="uid://dxldcsibc53cl" path="res://Assets/yolk/walk/walk0000.png" id="15_70hv0"]
 [ext_resource type="Texture2D" uid="uid://bnn3uy8ywa2uf" path="res://Assets/yolk/walk/walk0001.png" id="16_8flut"]
@@ -109,6 +114,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
 size = Vector2(112, 176)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iu4k"]
+size = Vector2(112, 88)
+
 [node name="Player" type="CharacterBody2D" unique_id=327763569 node_paths=PackedStringArray("state_machine", "sprite")]
 collision_layer = 2
 floor_constant_speed = true
@@ -125,10 +133,20 @@ sprite_frames = SubResource("SpriteFrames_nn08x")
 animation = &"cracked_egg_roll"
 autoplay = "full_egg_idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622051724]
+[node name="Yolk" type="Sprite2D" parent="." unique_id=223885265]
+position = Vector2(0, 44.25)
+scale = Vector2(1, 0.5)
+texture = ExtResource("1_rpqav")
+
+[node name="FullEggHitbox" type="CollisionShape2D" parent="." unique_id=622051724]
 shape = SubResource("RectangleShape2D_kyqiw")
 
-[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_fall", "full_egg_hop")]
+[node name="YolkHitbox" type="CollisionShape2D" parent="." unique_id=715961711]
+position = Vector2(0, 44)
+shape = SubResource("RectangleShape2D_1iu4k")
+disabled = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_fall", "full_egg_hop", "yolk_idle", "yolk_walk", "yolk_jump", "yolk_fall", "yolk_climb")]
 script = ExtResource("3_52ee3")
 starting_state = NodePath("FullEggIdle")
 full_egg_idle = NodePath("FullEggIdle")
@@ -136,6 +154,11 @@ full_egg_walk = NodePath("FullEggWalk")
 full_egg_jump = NodePath("FullEggJump")
 full_egg_fall = NodePath("FullEggFall")
 full_egg_hop = NodePath("FullEggHop")
+yolk_idle = NodePath("YolkIdle")
+yolk_walk = NodePath("YolkWalk")
+yolk_jump = NodePath("YolkJump")
+yolk_fall = NodePath("YolkFall")
+yolk_climb = NodePath("YolkClimb")
 
 [node name="FullEggIdle" type="Node" parent="StateMachine" unique_id=1699185401]
 script = ExtResource("4_bhhdu")
@@ -150,8 +173,6 @@ animation_name = "full_egg_roll"
 
 [node name="FullEggJump" type="Node" parent="StateMachine" unique_id=81668169]
 script = ExtResource("6_yoq75")
-jump_velocity = 1000
-move_speed = 500
 placeholder_state_color = Color(1, 0, 0, 1)
 
 [node name="FullEggFall" type="Node" parent="StateMachine" unique_id=2021791592]
@@ -163,3 +184,30 @@ placeholder_state_color = Color(1, 0, 1, 1)
 script = ExtResource("14_o3h8g")
 jump_velocity = 1200
 move_speed = 500
+
+[node name="YolkIdle" type="Node" parent="StateMachine" unique_id=1826340498]
+script = ExtResource("8_glx4g")
+placeholder_state_color = Color(0.5372549, 1, 1, 1)
+metadata/_custom_type_script = "uid://8no0e8ov66oa"
+
+[node name="YolkWalk" type="Node" parent="StateMachine" unique_id=83157303]
+script = ExtResource("9_miouo")
+move_speed = 500
+placeholder_state_color = Color(0.49803922, 1, 0.5137255, 1)
+metadata/_custom_type_script = "uid://8no0e8ov66oa"
+
+[node name="YolkJump" type="Node" parent="StateMachine" unique_id=1599529363]
+script = ExtResource("10_o3h8g")
+jump_velocity = 750
+placeholder_state_color = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://8no0e8ov66oa"
+
+[node name="YolkFall" type="Node" parent="StateMachine" unique_id=1872056286]
+script = ExtResource("11_1e7my")
+move_speed = 500
+placeholder_state_color = Color(1, 0, 1, 1)
+metadata/_custom_type_script = "uid://8no0e8ov66oa"
+
+[node name="YolkClimb" type="Node" parent="StateMachine" unique_id=984047742]
+script = ExtResource("12_arntx")
+metadata/_custom_type_script = "uid://8no0e8ov66oa"
