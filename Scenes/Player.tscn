@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b65c5p1mmfi87"]
+
+[ext_resource type="Script" uid="uid://66ego8xdtp20" path="res://player.gd" id="1_5ixxa"]
+[ext_resource type="Texture2D" uid="uid://dwmxdoc6bu6vn" path="res://Assets/egg.png" id="1_rpqav"]
+[ext_resource type="Script" uid="uid://bwtrifdxs3ftp" path="res://state_machine.gd" id="3_nn08x"]
+[ext_resource type="Script" uid="uid://ba7si4g1u0gx7" path="res://full_egg_idle.gd" id="4_5ixxa"]
+[ext_resource type="Script" uid="uid://bgbbve4jf1tk5" path="res://full_egg_walk.gd" id="5_5ixxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
+size = Vector2(112, 176)
+
+[node name="Player" type="CharacterBody2D" unique_id=327763569 node_paths=PackedStringArray("state_machine", "sprite")]
+collision_layer = 2
+script = ExtResource("1_5ixxa")
+jump_speed = 1000.0
+max_fall_speed = 2000.0
+fall_speed = 2000.0
+move_speed = 700.0
+state_machine = NodePath("StateMachine")
+sprite = NodePath("Egg")
+
+[node name="Egg" type="Sprite2D" parent="." unique_id=1710872001]
+texture = ExtResource("1_rpqav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622051724]
+shape = SubResource("RectangleShape2D_kyqiw")
+
+[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle_state", "full_egg_walk_state")]
+script = ExtResource("3_nn08x")
+starting_state = NodePath("FullEggIdle")
+full_egg_idle_state = NodePath("FullEggIdle")
+full_egg_walk_state = NodePath("FullEggWalk")
+
+[node name="FullEggIdle" type="Node" parent="StateMachine" unique_id=1699185401]
+script = ExtResource("4_5ixxa")
+placeholder_state_color = Color(0.5372549, 1, 1, 1)
+
+[node name="FullEggWalk" type="Node" parent="StateMachine" unique_id=2016896665]
+script = ExtResource("5_5ixxa")
+move_speed = 1000
