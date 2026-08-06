@@ -3,7 +3,7 @@ class_name Player
 
 @export var jump_speed : float = 50
 @export var max_fall_speed : float = 50
-@export var fall_speed : float = 50
+@export var gravity : float = 50
 @export var move_speed : float = 50
 @export var state_machine : StateMachine
 @export var sprite: Sprite2D

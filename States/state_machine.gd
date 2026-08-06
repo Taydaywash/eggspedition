@@ -6,9 +6,10 @@ var player : Player
 var sprite : Sprite2D
 @export var starting_state : State
 
-@export var full_egg_idle_state : State
-@export var full_egg_walk_state : State
-@export var full_egg_jump_state : State
+@export var full_egg_idle : State
+@export var full_egg_walk : State
+@export var full_egg_jump : State
+@export var full_egg_fall: State
 
 func initialize_state_machine() -> void:
 	for child in get_children():

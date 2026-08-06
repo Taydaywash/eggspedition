@@ -10,11 +10,14 @@ func activate():
 	sprite.self_modulate = placeholder_state_color
 	return
 
-func process_frame(_delta) -> State:
+@warning_ignore("unused_parameter")
+func process_frame(delta) -> State:
 	return null
-func process_physics(_delta) -> State:
+@warning_ignore("unused_parameter")
+func process_physics(delta) -> State:
 	return null
-func process_input(_event) -> State:
+@warning_ignore("unused_parameter")
+func process_input(event : InputEvent) -> State:
 	return null
 
 func deactivate():
