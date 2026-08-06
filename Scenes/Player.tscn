@@ -122,7 +122,7 @@ sprite = NodePath("Egg")
 
 [node name="Egg" type="AnimatedSprite2D" parent="." unique_id=1851985346]
 sprite_frames = SubResource("SpriteFrames_nn08x")
-animation = &"yolk_walk"
+animation = &"cracked_egg_roll"
 autoplay = "full_egg_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622051724]

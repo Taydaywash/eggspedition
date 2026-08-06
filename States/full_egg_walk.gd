@@ -28,6 +28,8 @@ func process_physics(delta):
 	if player.velocity.x == 0 and not finishing_roll:
 		input_direction = Input.get_axis("move_left","move_right")
 		player.velocity.x = input_direction * move_speed
+	elif abs(player.velocity.x) > move_speed:
+		player.velocity.x = move_toward(player.velocity.x,move_speed * sign(player.velocity.x),delta*1000)
 	if player.velocity.y >= 1:
 		return state_machine.full_egg_fall
 	player.velocity.y = move_toward(player.velocity.y,player.max_fall_speed,delta * player.gravity)
