@@ -10,7 +10,6 @@ var state_machine : StateMachine
 func activate():
 	sprite.self_modulate = placeholder_state_color
 	player.play_animation(animation_name)
-	return
 
 @warning_ignore("unused_parameter")
 func process_frame(delta) -> State:
@@ -23,4 +22,4 @@ func process_input(event : InputEvent) -> State:
 	return null
 
 func deactivate():
-	return
+	pass
