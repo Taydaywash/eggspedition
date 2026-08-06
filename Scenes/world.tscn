@@ -397,6 +397,8 @@ sources/4 = SubResource("TileSetAtlasSource_5a7ea")
 
 [node name="Player" parent="." unique_id=132045156 instance=ExtResource("1_a02cp")]
 position = Vector2(-1728, 32)
+max_fall_speed = 6000.0
+gravity = 3000.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=353222267]
 zoom = Vector2(0.3, 0.3)

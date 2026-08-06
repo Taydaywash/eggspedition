@@ -2,21 +2,55 @@
 
 [ext_resource type="Script" uid="uid://66ego8xdtp20" path="res://States/player.gd" id="1_nn08x"]
 [ext_resource type="Texture2D" uid="uid://dwmxdoc6bu6vn" path="res://Assets/egg.png" id="1_rpqav"]
+[ext_resource type="Texture2D" uid="uid://bklw5jx4x2k5e" path="res://Assets/cracked_egg/roll0000.png" id="2_m0x7a"]
+[ext_resource type="Texture2D" uid="uid://cywhptyen0pke" path="res://Assets/cracked_egg/roll0001.png" id="3_5v66d"]
 [ext_resource type="Script" uid="uid://bwtrifdxs3ftp" path="res://States/state_machine.gd" id="3_52ee3"]
 [ext_resource type="Texture2D" uid="uid://crexmtsvqcaw0" path="res://Assets/full_egg/roll/roll0000.png" id="3_miouo"]
 [ext_resource type="Script" uid="uid://ba7si4g1u0gx7" path="res://States/full_egg_idle.gd" id="4_bhhdu"]
 [ext_resource type="Texture2D" uid="uid://bxqybkoa6bxbl" path="res://Assets/full_egg/roll/roll0001.png" id="4_o3h8g"]
+[ext_resource type="Texture2D" uid="uid://puyfceqikfn2" path="res://Assets/cracked_egg/roll0002.png" id="4_x63xi"]
 [ext_resource type="Texture2D" uid="uid://d3g5lysvvk7b5" path="res://Assets/full_egg/roll/roll0002.png" id="5_1e7my"]
+[ext_resource type="Texture2D" uid="uid://delfeldxsvudq" path="res://Assets/cracked_egg/roll0003.png" id="5_i2e8t"]
 [ext_resource type="Script" uid="uid://bgbbve4jf1tk5" path="res://States/full_egg_walk.gd" id="5_megsn"]
 [ext_resource type="Texture2D" uid="uid://b8q0s72t7pket" path="res://Assets/full_egg/roll/roll0003.png" id="6_arntx"]
+[ext_resource type="Texture2D" uid="uid://d18ty7n00fwg4" path="res://Assets/cracked_egg/roll0004.png" id="6_qidb7"]
 [ext_resource type="Script" uid="uid://ccqa7jgp261s2" path="res://States/full_egg_jump.gd" id="6_yoq75"]
 [ext_resource type="Script" uid="uid://olunikc8cf75" path="res://States/full_egg_fall.gd" id="7_52ee3"]
+[ext_resource type="Texture2D" uid="uid://ew0eyvna1a74" path="res://Assets/cracked_egg/roll0005.png" id="7_70hv0"]
 [ext_resource type="Texture2D" uid="uid://d0mt7kqaw816v" path="res://Assets/full_egg/roll/roll0004.png" id="7_lslt6"]
 [ext_resource type="Texture2D" uid="uid://bxadbxg7u8exl" path="res://Assets/full_egg/roll/roll0005.png" id="8_ulo2v"]
 [ext_resource type="Script" uid="uid://b3o458fo3o5ay" path="res://States/full_egg_hop.gd" id="14_o3h8g"]
+[ext_resource type="Texture2D" uid="uid://dxldcsibc53cl" path="res://Assets/yolk/walk/walk0000.png" id="15_70hv0"]
+[ext_resource type="Texture2D" uid="uid://bnn3uy8ywa2uf" path="res://Assets/yolk/walk/walk0001.png" id="16_8flut"]
+[ext_resource type="Texture2D" uid="uid://bsf3nlv0jawvk" path="res://Assets/yolk/walk/walk0002.png" id="17_u7x0b"]
+[ext_resource type="Texture2D" uid="uid://ct85pip8hsckm" path="res://Assets/yolk/walk/walk0003.png" id="18_utwlt"]
+[ext_resource type="Texture2D" uid="uid://b76dfy68sm0xp" path="res://Assets/yolk/walk/walk0004.png" id="19_kih0c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nn08x"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m0x7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5v66d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x63xi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i2e8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qidb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_70hv0")
+}],
+"loop": 1,
+"name": &"cracked_egg_roll",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_rpqav")
@@ -50,6 +84,26 @@ animations = [{
 "loop": 1,
 "name": &"full_egg_roll",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_70hv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8flut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_u7x0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_utwlt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_kih0c")
+}],
+"loop": 1,
+"name": &"yolk_walk",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
@@ -68,9 +122,8 @@ sprite = NodePath("Egg")
 
 [node name="Egg" type="AnimatedSprite2D" parent="." unique_id=1851985346]
 sprite_frames = SubResource("SpriteFrames_nn08x")
-animation = &"full_egg_roll"
+animation = &"yolk_walk"
 autoplay = "full_egg_idle"
-frame_progress = 0.94106835
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622051724]
 shape = SubResource("RectangleShape2D_kyqiw")
@@ -91,12 +144,13 @@ placeholder_state_color = Color(0.5372549, 1, 1, 1)
 [node name="FullEggWalk" type="Node" parent="StateMachine" unique_id=2016896665]
 script = ExtResource("5_megsn")
 move_speed = 500
+jump_horizontal_velocity = 1200
 placeholder_state_color = Color(0.49803922, 1, 0.5137255, 1)
 animation_name = "full_egg_roll"
 
 [node name="FullEggJump" type="Node" parent="StateMachine" unique_id=81668169]
 script = ExtResource("6_yoq75")
-jump_velocity = 1300
+jump_velocity = 1000
 move_speed = 500
 placeholder_state_color = Color(1, 0, 0, 1)
 
@@ -107,5 +161,5 @@ placeholder_state_color = Color(1, 0, 1, 1)
 
 [node name="FullEggHop" type="Node" parent="StateMachine" unique_id=316554779]
 script = ExtResource("14_o3h8g")
-jump_velocity = 800
+jump_velocity = 1200
 move_speed = 500
