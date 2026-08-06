@@ -41,15 +41,16 @@ placeholder_state_color = Color(0.5372549, 1, 1, 1)
 
 [node name="FullEggWalk" type="Node" parent="StateMachine" unique_id=2016896665]
 script = ExtResource("5_megsn")
-move_speed = 1000
+move_speed = 600
 placeholder_state_color = Color(0.49803922, 1, 0.5137255, 1)
 
 [node name="FullEggJump" type="Node" parent="StateMachine" unique_id=81668169]
 script = ExtResource("6_yoq75")
-jump_velocity = 1000
+jump_velocity = 1300
+move_speed = 600
 placeholder_state_color = Color(1, 0, 0, 1)
 
 [node name="FullEggFall" type="Node" parent="StateMachine" unique_id=2021791592]
 script = ExtResource("7_52ee3")
-move_speed = 1000
+move_speed = 600
 placeholder_state_color = Color(1, 0, 1, 1)
