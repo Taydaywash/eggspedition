@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bvjb674tn5jt5"]
 
-[ext_resource type="Texture2D" uid="uid://1tl27k1jpwlx" path="res://Assets/placeholder.png" id="1_hicsh"]
+[ext_resource type="Texture2D" uid="uid://yf5q468nvfca" path="res://Assets/tileset.png" id="1_pybvu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5a7ea"]
-texture = ExtResource("1_hicsh")
+texture = ExtResource("1_pybvu")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/modulate = Color(0.5145496, 0.5145496, 0.5145496, 1)
