@@ -12,7 +12,14 @@ func activate():
 
 func process_physics(delta):
 	var input_direction = Input.get_axis("move_left","move_right")
-	if (abs(player.velocity.x) < move_speed) or (sign(input_direction) != sign(player.velocity.x)):
+	if not input_direction:
+		player.velocity.x = move_toward(player.velocity.x,0,delta*1000)
+	elif sign(input_direction) != sign(player.velocity.x):
+		if abs(player.velocity.x) > move_speed:
+			player.velocity.x = move_toward(player.velocity.x,move_speed * sign(input_direction),delta*2000)
+		else:
+			player.velocity.x = input_direction * move_speed
+	elif abs(player.velocity.x) < move_speed:
 		player.velocity.x = input_direction * move_speed
 	player.velocity.y = move_toward(player.velocity.y,player.max_fall_speed,delta * player.gravity)
 	player.move_and_slide()
@@ -24,7 +31,7 @@ func process_physics(delta):
 	if player.velocity.y == 0:
 		if fall_distance > distance_to_crack:
 			return state_machine.egg_to_yolk
-		if player.velocity.x:
+		if input_direction:
 			return state_machine.full_egg_walk
 		return state_machine.full_egg_idle
 	return

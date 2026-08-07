@@ -20,7 +20,7 @@ door_size = Vector2(100, 400)
 jump_on_enter = false
 
 [node name="Room02" parent="." unique_id=2138922023 instance=ExtResource("2_5a7ea")]
-position = Vector2(5248, 384)
+position = Vector2(5184, 384)
 
 [node name="Door" parent="Room02" unique_id=1105916116 instance=ExtResource("3_8j60k")]
 position = Vector2(-2304, -832)
