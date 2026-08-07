@@ -6,6 +6,8 @@ func process_input(event : InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		if player.is_on_floor():
 			return state_machine.yolk_jump
+	if event.is_action_pressed("recall"):
+		return state_machine.yolk_to_egg
 	return
 
 func process_physics(delta):

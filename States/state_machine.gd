@@ -18,6 +18,7 @@ var sprite : AnimatedSprite2D
 @export var yolk_fall: State
 @export var yolk_climb: State
 @export var yolk_climb_idle: State
+@export var yolk_to_egg: State
 
 
 func initialize_state_machine() -> void:
