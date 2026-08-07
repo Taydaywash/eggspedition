@@ -9,16 +9,20 @@ var pressed : bool = false
 
 func button_pressed():
 	SignalController.emit_signal("button_pressed",connected_doors)
+	pressed = true
 	unpressed_sprite.visible = false
 	pressed_sprite.visible = true
 
 func button_unpressed():
 	SignalController.emit_signal("button_unpressed",connected_doors)
+	pressed = false
 	unpressed_sprite.visible = true
 	pressed_sprite.visible = false
 
 func _on_body_entered(_body: Node2D) -> void:
-	button_pressed()
+	if not pressed:
+		button_pressed()
 
 func _on_body_exited(_body: Node2D) -> void:
-	button_unpressed()
+	if not get_overlapping_areas() and not get_overlapping_bodies():
+		button_unpressed()

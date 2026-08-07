@@ -187,7 +187,7 @@ size = Vector2(112, 88)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glm38"]
 size = Vector2(96, 72)
 
-[node name="Player" type="CharacterBody2D" unique_id=327763569 node_paths=PackedStringArray("state_machine", "sprite", "climbing_detector", "full_egg_hitbox", "yolk_hitbox", "full_egg_hurtbox", "yolk_hurtbox")]
+[node name="Player" type="CharacterBody2D" unique_id=327763569 node_paths=PackedStringArray("state_machine", "sprite", "climbing_detector", "full_egg_hitbox", "yolk_hitbox", "full_egg_hurtbox", "yolk_hurtbox", "egg_shell_detector")]
 collision_layer = 2
 floor_constant_speed = true
 script = ExtResource("1_nn08x")
@@ -202,6 +202,7 @@ full_egg_hitbox = NodePath("FullEggHitbox")
 yolk_hitbox = NodePath("YolkHitbox")
 full_egg_hurtbox = NodePath("EggHurtbox")
 yolk_hurtbox = NodePath("YolkHurtbox")
+egg_shell_detector = NodePath("EggShellDetector")
 
 [node name="Egg" type="AnimatedSprite2D" parent="." unique_id=1851985346]
 sprite_frames = SubResource("SpriteFrames_nn08x")

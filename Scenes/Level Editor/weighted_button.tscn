@@ -8,7 +8,7 @@ size = Vector2(128, 64)
 
 [node name="DoorButton" type="Area2D" unique_id=329787129 node_paths=PackedStringArray("unpressed_sprite", "pressed_sprite")]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("1_wwn2x")
 unpressed_sprite = NodePath("UnpressedSprite")
 pressed_sprite = NodePath("PressedSprite")
@@ -28,5 +28,7 @@ position = Vector2(0, 48)
 scale = Vector2(1, 0.25)
 texture = ExtResource("2_4luaf")
 
+[connection signal="area_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_exited" from="." to="." method="_on_body_exited"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

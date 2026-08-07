@@ -38,6 +38,10 @@ func process_physics(delta):
 		player.velocity.x = input_direction * move_speed
 	player.velocity.y = move_toward(player.velocity.y,player.max_fall_speed,delta * player.gravity)
 	player.move_and_slide()
+	if player.is_on_climbable:
+		if player.velocity.x:
+			return state_machine.yolk_climb
+		return state_machine.yolk_climb_idle
 	if player.velocity.y == 0:
 		if player.velocity.x:
 			return state_machine.yolk_walk

@@ -19,6 +19,9 @@ func _process(delta):
 
 func move_egg_shell() -> void:
 	is_moving = true
+	await get_tree().process_frame
+	if get_overlapping_bodies():
+		get_overlapping_bodies()[0].egg_shell_detector.emit_signal("area_entered",self)
 
 #func _on_body_entered(_body):
 	#if is_moving:

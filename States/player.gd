@@ -14,6 +14,7 @@ class_name Player
 @export var yolk_hitbox: CollisionShape2D
 @export var full_egg_hurtbox: Area2D
 @export var yolk_hurtbox: Area2D
+@export var egg_shell_detector: Area2D
 
 var is_on_climbable: bool = false
 

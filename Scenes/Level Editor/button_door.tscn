@@ -17,6 +17,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_7t7ma"]
 resource_name = "door_close"
@@ -32,6 +44,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(2.9281707, 1.7411015),
 "update": 0,
 "values": [Vector2(0, -224), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_pmlmp"]
@@ -49,6 +73,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -224)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7t7ma"]
 _data = {
@@ -59,6 +95,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nl8pl"]
 size = Vector2(128, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58i6i"]
+size = Vector2(96, 256)
 
 [node name="ButtonDoor" type="Node2D" unique_id=1763886692 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_67lek")
@@ -77,3 +116,12 @@ texture = ExtResource("2_ger10")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=422387281]
 shape = SubResource("RectangleShape2D_nl8pl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D" unique_id=1494560041]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D" unique_id=1076151774]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_58i6i")
+debug_color = Color(0.98391527, 0, 0.35294843, 0.41960785)
