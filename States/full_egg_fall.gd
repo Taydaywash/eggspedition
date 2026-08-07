@@ -1,14 +1,13 @@
 extends State
 
 @export var move_speed : int
+@export var distance_to_crack : float = 100
 
 var peak_y: float = 0.0
 var fall_distance: float = 0.0
-var is_cracked: float = false
 
 func activate():
 	super()
-	is_cracked = false
 	peak_y = player.global_position.y
 
 func process_physics(delta):
@@ -17,22 +16,20 @@ func process_physics(delta):
 		player.velocity.x = input_direction * move_speed
 	player.velocity.y = move_toward(player.velocity.y,player.max_fall_speed,delta * player.gravity)
 	player.move_and_slide()
+		
+	if player.global_position.y < peak_y:
+		peak_y = player.global_position.y
+	fall_distance = abs(peak_y - player.global_position.y)
+		
 	if player.velocity.y == 0:
 		if player.velocity.x:
 			#return state_machine.full_egg_walk
 			pass
+		if fall_distance > distance_to_crack:
+			return state_machine.egg_to_yolk
 		return state_machine.full_egg_idle
-		
-	if player.global_position.y < peak_y:
-		peak_y = player.global_position.y
-	
 	return
 	
 func deactivate():
 	super()
-	fall_distance = abs(peak_y - player.global_position.y)
-	print("Fallen Pixels: ", fall_distance)
-	if fall_distance > 100:
-		is_cracked = true
-	
 	peak_y = player.global_position.y

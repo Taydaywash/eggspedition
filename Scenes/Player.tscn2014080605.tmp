@@ -30,8 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://bsf3nlv0jawvk" path="res://Assets/yolk/walk/walk0002.png" id="17_u7x0b"]
 [ext_resource type="Texture2D" uid="uid://ct85pip8hsckm" path="res://Assets/yolk/walk/walk0003.png" id="18_utwlt"]
 [ext_resource type="Texture2D" uid="uid://b76dfy68sm0xp" path="res://Assets/yolk/walk/walk0004.png" id="19_kih0c"]
-[ext_resource type="Script" uid="uid://ddakolddp0s87" path="res://States/egg_to_yolk.gd" id="26_avx33"]
-[ext_resource type="Script" uid="uid://86kdyrdon6xa" path="res://States/yolk_climb_idle.gd" id="31_c43xd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nn08x"]
 animations = [{
@@ -159,7 +157,7 @@ size = Vector2(112, 88)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1lth"]
 size = Vector2(112, 88)
 
-[node name="Player" type="CharacterBody2D" unique_id=327763569 node_paths=PackedStringArray("state_machine", "sprite", "climbing_detector", "full_egg_hitbox", "yolk_hitbox")]
+[node name="Player" type="CharacterBody2D" unique_id=327763569 node_paths=PackedStringArray("state_machine", "sprite", "climbing_detector")]
 collision_layer = 2
 floor_constant_speed = true
 script = ExtResource("1_nn08x")
@@ -170,8 +168,6 @@ move_speed = 700.0
 state_machine = NodePath("StateMachine")
 sprite = NodePath("Egg")
 climbing_detector = NodePath("ClimbingDetector")
-full_egg_hitbox = NodePath("FullEggHitbox")
-yolk_hitbox = NodePath("YolkHitbox")
 
 [node name="Egg" type="AnimatedSprite2D" parent="." unique_id=1851985346]
 sprite_frames = SubResource("SpriteFrames_nn08x")
@@ -187,7 +183,7 @@ position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_1iu4k")
 disabled = true
 
-[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_fall", "full_egg_hop", "egg_to_yolk", "yolk_idle", "yolk_walk", "yolk_jump", "yolk_fall", "yolk_climb", "yolk_climb_idle")]
+[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_fall", "full_egg_hop", "yolk_idle", "yolk_walk", "yolk_jump", "yolk_fall", "yolk_climb")]
 script = ExtResource("3_52ee3")
 starting_state = NodePath("FullEggIdle")
 full_egg_idle = NodePath("FullEggIdle")
@@ -195,13 +191,11 @@ full_egg_walk = NodePath("FullEggWalk")
 full_egg_jump = NodePath("FullEggJump")
 full_egg_fall = NodePath("FullEggFall")
 full_egg_hop = NodePath("FullEggHop")
-egg_to_yolk = NodePath("EggToYolk")
 yolk_idle = NodePath("YolkIdle")
 yolk_walk = NodePath("YolkWalk")
 yolk_jump = NodePath("YolkJump")
 yolk_fall = NodePath("YolkFall")
 yolk_climb = NodePath("YolkClimb")
-yolk_climb_idle = NodePath("YolkClimbIdle")
 
 [node name="FullEggIdle" type="Node" parent="StateMachine" unique_id=1699185401]
 script = ExtResource("4_bhhdu")
@@ -228,10 +222,6 @@ placeholder_state_color = Color(1, 0, 1, 1)
 script = ExtResource("14_o3h8g")
 jump_velocity = 850
 move_speed = 500
-
-[node name="EggToYolk" type="Node" parent="StateMachine" unique_id=49657149]
-script = ExtResource("26_avx33")
-metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
 [node name="YolkIdle" type="Node" parent="StateMachine" unique_id=1826340498]
 script = ExtResource("8_glx4g")
@@ -262,14 +252,8 @@ metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
 [node name="YolkClimb" type="Node" parent="StateMachine" unique_id=984047742 node_paths=PackedStringArray("climbing_detector")]
 script = ExtResource("12_arntx")
-climb_speed = 400
 climbing_detector = NodePath("../../ClimbingDetector")
 animation_name = "yolk_walk"
-metadata/_custom_type_script = "uid://8no0e8ov66oa"
-
-[node name="YolkClimbIdle" type="Node" parent="StateMachine" unique_id=1268056607]
-script = ExtResource("31_c43xd")
-animation_name = "yolk_idle"
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
 [node name="EggHurtbox" type="Area2D" parent="." unique_id=291355709]

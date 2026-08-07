@@ -11,11 +11,14 @@ var sprite : AnimatedSprite2D
 @export var full_egg_jump : State
 @export var full_egg_fall: State
 @export var full_egg_hop: State
+@export var egg_to_yolk: State
 @export var yolk_idle: State
 @export var yolk_walk: State
 @export var yolk_jump: State
 @export var yolk_fall: State
 @export var yolk_climb: State
+@export var yolk_climb_idle: State
+
 
 func initialize_state_machine() -> void:
 	for child in get_children():

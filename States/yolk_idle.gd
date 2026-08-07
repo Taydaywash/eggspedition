@@ -18,4 +18,6 @@ func process_physics(delta) -> State:
 		return state_machine.yolk_walk
 	if !player.is_on_floor:
 		return state_machine.yolk_fall
+	if player.is_on_climbable:
+			return state_machine.yolk_climb_idle
 	return
