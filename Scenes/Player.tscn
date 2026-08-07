@@ -140,6 +140,9 @@ size = Vector2(112, 176)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1iu4k"]
 size = Vector2(112, 88)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl8pl"]
+size = Vector2(96, 104)
+
 [node name="Player" type="CharacterBody2D" unique_id=327763569 node_paths=PackedStringArray("state_machine", "sprite")]
 collision_layer = 2
 floor_constant_speed = true
@@ -159,6 +162,7 @@ frame = 4
 frame_progress = 0.8762318
 
 [node name="Yolk" type="Sprite2D" parent="." unique_id=223885265]
+visible = false
 position = Vector2(0, 44.25)
 scale = Vector2(1, 0.5)
 texture = ExtResource("1_rpqav")
@@ -187,7 +191,6 @@ yolk_climb = NodePath("YolkClimb")
 
 [node name="FullEggIdle" type="Node" parent="StateMachine" unique_id=1699185401]
 script = ExtResource("4_bhhdu")
-placeholder_state_color = Color(0.5372549, 1, 1, 1)
 
 [node name="FullEggWalk" type="Node" parent="StateMachine" unique_id=2016896665]
 script = ExtResource("5_megsn")
@@ -197,20 +200,19 @@ animation_name = "full_egg_roll"
 
 [node name="FullEggJump" type="Node" parent="StateMachine" unique_id=81668169]
 script = ExtResource("6_yoq75")
-placeholder_state_color = Color(1, 0, 0, 1)
 jump_velocity = 900
-move_speed = 500
 animation_name = "full_egg_air_roll"
 
 [node name="FullEggFall" type="Node" parent="StateMachine" unique_id=2021791592]
 script = ExtResource("7_52ee3")
 move_speed = 500
-placeholder_state_color = Color(1, 0, 1, 1)
+animation_name = "full_egg_air_roll"
 
 [node name="FullEggHop" type="Node" parent="StateMachine" unique_id=316554779]
 script = ExtResource("14_o3h8g")
 jump_velocity = 850
 move_speed = 500
+animation_name = "full_egg_air_roll"
 
 [node name="YolkIdle" type="Node" parent="StateMachine" unique_id=1826340498]
 script = ExtResource("8_glx4g")
@@ -238,3 +240,14 @@ metadata/_custom_type_script = "uid://8no0e8ov66oa"
 [node name="YolkClimb" type="Node" parent="StateMachine" unique_id=984047742]
 script = ExtResource("12_arntx")
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
+
+[node name="PlayerHurtbox" type="Area2D" parent="." unique_id=1821409906]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox" unique_id=218920967]
+position = Vector2(0, 36)
+shape = SubResource("RectangleShape2D_nl8pl")
+debug_color = Color(0.9774901, 0, 0.40739283, 0.41960785)
+
+[connection signal="body_entered" from="PlayerHurtbox" to="." method="_on_player_hurtbox_body_entered"]

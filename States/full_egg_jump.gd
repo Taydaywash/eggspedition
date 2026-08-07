@@ -4,7 +4,6 @@ extends State
 
 func activate():
 	super()
-	player.velocity.x = 0
 	player.velocity.y = -jump_velocity
 
 func process_physics(delta):

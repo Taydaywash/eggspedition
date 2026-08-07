@@ -33,6 +33,7 @@ func deactivate():
 	fall_distance = abs(peak_y - player.global_position.y)
 	print("Fallen Pixels: ", fall_distance)
 	if fall_distance > 100:
+		return
 		is_cracked = true
 	
 	peak_y = player.global_position.y
