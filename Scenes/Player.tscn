@@ -58,6 +58,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_arntx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lslt6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ulo2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_miouo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o3h8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1e7my")
+}],
+"loop": 1,
+"name": &"full_egg_air_roll",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_rpqav")
 }],
 "loop": 1,
@@ -130,8 +153,10 @@ sprite = NodePath("Egg")
 
 [node name="Egg" type="AnimatedSprite2D" parent="." unique_id=1851985346]
 sprite_frames = SubResource("SpriteFrames_nn08x")
-animation = &"cracked_egg_roll"
+animation = &"full_egg_air_roll"
 autoplay = "full_egg_idle"
+frame = 4
+frame_progress = 0.8762318
 
 [node name="Yolk" type="Sprite2D" parent="." unique_id=223885265]
 position = Vector2(0, 44.25)
@@ -168,12 +193,14 @@ placeholder_state_color = Color(0.5372549, 1, 1, 1)
 script = ExtResource("5_megsn")
 move_speed = 500
 jump_horizontal_velocity = 1200
-placeholder_state_color = Color(0.49803922, 1, 0.5137255, 1)
 animation_name = "full_egg_roll"
 
 [node name="FullEggJump" type="Node" parent="StateMachine" unique_id=81668169]
 script = ExtResource("6_yoq75")
 placeholder_state_color = Color(1, 0, 0, 1)
+jump_velocity = 900
+move_speed = 500
+animation_name = "full_egg_air_roll"
 
 [node name="FullEggFall" type="Node" parent="StateMachine" unique_id=2021791592]
 script = ExtResource("7_52ee3")
@@ -182,7 +209,7 @@ placeholder_state_color = Color(1, 0, 1, 1)
 
 [node name="FullEggHop" type="Node" parent="StateMachine" unique_id=316554779]
 script = ExtResource("14_o3h8g")
-jump_velocity = 1200
+jump_velocity = 850
 move_speed = 500
 
 [node name="YolkIdle" type="Node" parent="StateMachine" unique_id=1826340498]

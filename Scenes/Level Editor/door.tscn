@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://fvwbjvsrk2eg"]
+
+[ext_resource type="Script" uid="uid://cjxxyv0m5ro2r" path="res://Scenes/Level Editor/door.gd" id="1_fsloq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl8pl"]
+size = Vector2(1200, 120)
+
+[node name="Door" type="Area2D" unique_id=1105916116 node_paths=PackedStringArray("collision_shape_2d")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_fsloq")
+door_size = Vector2(50, 50)
+collision_shape_2d = NodePath("CollisionShape2D")
+jump_on_enter = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1385321481]
+shape = SubResource("RectangleShape2D_nl8pl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
