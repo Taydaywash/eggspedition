@@ -26,7 +26,8 @@ func deactivate():
 	super()
 
 func _on_egg_shell_detector_area_entered(area):
-	direction = (player.global_position - area.global_position).normalized()
-	area.call_deferred("queue_free")
-	egg_returned = true
-	print(direction)
+	if "is_moving" in area: 
+		if area.is_moving:
+			direction = (player.global_position - area.global_position).normalized()
+			area.call_deferred("queue_free")
+			egg_returned = true
