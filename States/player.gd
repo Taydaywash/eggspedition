@@ -35,6 +35,6 @@ func play_animation(animation_name : String):
 	else:
 		sprite.play("full_egg_idle")
 
-
 func _on_player_hurtbox_body_entered(_body: Node2D) -> void:
+	state_machine.change_state(state_machine.full_egg_idle)
 	position = Global.respawn_point

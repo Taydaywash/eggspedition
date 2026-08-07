@@ -22,11 +22,10 @@ func process_physics(delta):
 	fall_distance = abs(peak_y - player.global_position.y)
 		
 	if player.velocity.y == 0:
-		if player.velocity.x:
-			#return state_machine.full_egg_walk
-			pass
 		if fall_distance > distance_to_crack:
 			return state_machine.egg_to_yolk
+		if player.velocity.x:
+			return state_machine.full_egg_walk
 		return state_machine.full_egg_idle
 	return
 	

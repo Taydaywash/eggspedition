@@ -26,7 +26,7 @@ func process_input(event : InputEvent) -> State:
 func process_physics(delta):
 	var input_direction = 0
 	if abs(player.velocity.x) > move_speed:
-		player.velocity.x = move_toward(player.velocity.x,move_speed * sign(player.velocity.x),delta*100)
+		player.velocity.x = move_toward(player.velocity.x,move_speed * sign(player.velocity.x),delta*1000)
 	elif player.velocity.x == 0 and not finishing_roll:
 		input_direction = Input.get_axis("move_left","move_right")
 		player.velocity.x = input_direction * move_speed

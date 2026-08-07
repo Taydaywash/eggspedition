@@ -83,6 +83,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_miouo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o3h8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1e7my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_arntx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lslt6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ulo2v")
+}],
+"loop": 1,
+"name": &"full_egg_air_roll_fall",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_rpqav")
 }],
 "loop": 1,
@@ -151,10 +174,10 @@ size = Vector2(112, 176)
 size = Vector2(112, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
-size = Vector2(112, 176)
+size = Vector2(96, 152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyrkg"]
-size = Vector2(112, 88)
+size = Vector2(96, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1lth"]
 size = Vector2(112, 88)
@@ -175,9 +198,8 @@ yolk_hitbox = NodePath("YolkHitbox")
 
 [node name="Egg" type="AnimatedSprite2D" parent="." unique_id=1851985346]
 sprite_frames = SubResource("SpriteFrames_nn08x")
-animation = &"yolk_idle"
+animation = &"full_egg_idle"
 autoplay = "full_egg_idle"
-frame_progress = 0.8762318
 
 [node name="FullEggHitbox" type="CollisionShape2D" parent="." unique_id=622051724]
 shape = SubResource("RectangleShape2D_kyqiw")
@@ -205,7 +227,7 @@ yolk_climb_idle = NodePath("YolkClimbIdle")
 
 [node name="FullEggIdle" type="Node" parent="StateMachine" unique_id=1699185401]
 script = ExtResource("4_bhhdu")
-placeholder_state_color = Color(0.5372549, 1, 1, 1)
+animation_name = "full_egg_idle"
 
 [node name="FullEggWalk" type="Node" parent="StateMachine" unique_id=2016896665]
 script = ExtResource("5_megsn")
@@ -216,18 +238,19 @@ animation_name = "full_egg_roll"
 [node name="FullEggJump" type="Node" parent="StateMachine" unique_id=81668169]
 script = ExtResource("6_yoq75")
 jump_velocity = 900
-placeholder_state_color = Color(1, 0, 0, 1)
 animation_name = "full_egg_air_roll"
 
 [node name="FullEggFall" type="Node" parent="StateMachine" unique_id=2021791592]
 script = ExtResource("7_52ee3")
 move_speed = 500
-placeholder_state_color = Color(1, 0, 1, 1)
+distance_to_crack = 384.0
+animation_name = "full_egg_air_roll_fall"
 
 [node name="FullEggHop" type="Node" parent="StateMachine" unique_id=316554779]
 script = ExtResource("14_o3h8g")
 jump_velocity = 850
 move_speed = 500
+animation_name = "full_egg_air_roll_fall"
 
 [node name="EggToYolk" type="Node" parent="StateMachine" unique_id=49657149]
 script = ExtResource("26_avx33")
@@ -273,15 +296,22 @@ animation_name = "yolk_idle"
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
 [node name="EggHurtbox" type="Area2D" parent="." unique_id=291355709]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EggHurtbox" unique_id=1400823064]
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_6vjpb")
+debug_color = Color(0.9760842, 0, 0.41811177, 0.41960785)
 
 [node name="YolkHurtbox" type="Area2D" parent="." unique_id=1895009132]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YolkHurtbox" unique_id=543231320]
 position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_lyrkg")
+debug_color = Color(0.9740549, 0, 0.43297637, 0.41960785)
 
 [node name="ClimbingDetector" type="Area2D" parent="." unique_id=690542789]
 collision_layer = 2
@@ -290,3 +320,6 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClimbingDetector" unique_id=1569987439]
 position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_b1lth")
+
+[connection signal="body_entered" from="EggHurtbox" to="." method="_on_player_hurtbox_body_entered"]
+[connection signal="body_entered" from="YolkHurtbox" to="." method="_on_player_hurtbox_body_entered"]
