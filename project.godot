@@ -18,7 +18,6 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 SignalController="*uid://dtklip67g01ua"
-Global="*uid://ctx0u6abwj6s"
 
 [display]
 
