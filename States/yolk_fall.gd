@@ -28,6 +28,7 @@ func process_input(event : InputEvent) -> State:
 		if player.is_on_climbable:
 			return state_machine.yolk_climb_idle
 	if event.is_action_pressed("recall"):
+		SignalController.emit_signal("recall_egg")
 		return state_machine.yolk_to_egg
 	return
 
@@ -52,5 +53,4 @@ func process_physics(delta):
 func deactivate():
 	super()
 	fall_distance = abs(peak_y - player.global_position.y)
-	print("Fallen Pixels: ", fall_distance)
 	peak_y = player.global_position.y

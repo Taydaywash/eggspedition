@@ -7,10 +7,11 @@ func process_input(event : InputEvent) -> State:
 		if player.is_on_floor():
 			return state_machine.yolk_jump
 	if event.is_action_pressed("recall"):
+		SignalController.emit_signal("recall_egg")
 		return state_machine.yolk_to_egg
 	return
 
-func process_physics(delta):
+func process_physics(delta) -> State:
 	var input_direction = Input.get_axis("move_left","move_right")
 	player.velocity.x = input_direction * move_speed
 	player.velocity.y = move_toward(player.velocity.y,player.max_fall_speed,delta * player.gravity)

@@ -38,21 +38,18 @@ func play_animation(animation_name : String):
 		sprite.play("full_egg_idle")
 
 func _on_player_hurtbox_body_entered(_body: Node2D) -> void:
-	print("yes")
 	state_machine.change_state(state_machine.full_egg_idle)
 	position = Global.respawn_point
 
 func change_hitbox(hitbox_name: String) -> void:
-	print("hitbox changed")
 	if hitbox_name == "egg":
-		full_egg_hitbox.set_deferred("disabled", true)
-		yolk_hitbox.set_deferred("disabled", false)
-	elif hitbox_name == "yolk":
 		full_egg_hitbox.set_deferred("disabled", false)
 		yolk_hitbox.set_deferred("disabled", true)
+	elif hitbox_name == "yolk":
+		full_egg_hitbox.set_deferred("disabled", true)
+		yolk_hitbox.set_deferred("disabled", false)
 
 func change_hurtbox(hurtbox_name: String) -> void:
-	print("hurtbox changes")
 	if hurtbox_name == "egg":
 		full_egg_hurtbox.set_deferred("monitoring", true)
 		full_egg_hurtbox.set_deferred("monitorable", true)

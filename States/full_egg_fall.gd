@@ -46,4 +46,3 @@ func process_physics(delta):
 	
 func deactivate():
 	super()
-	peak_y = player.global_position.y
