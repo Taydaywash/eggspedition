@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cec2u2nnayelu"]
+
+[ext_resource type="Script" uid="uid://h14vwn5m2jbs" path="res://button.gd" id="1_wwn2x"]
+[ext_resource type="Texture2D" uid="uid://b1kmx516mcvcb" path="res://Assets/icon.svg" id="2_4luaf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4luaf"]
+size = Vector2(128, 64)
+
+[node name="DoorButton" type="Area2D" unique_id=329787129 node_paths=PackedStringArray("unpressed_sprite", "pressed_sprite")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_wwn2x")
+unpressed_sprite = NodePath("UnpressedSprite")
+pressed_sprite = NodePath("PressedSprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=413089575]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_4luaf")
+
+[node name="UnpressedSprite" type="Sprite2D" parent="." unique_id=1726988681]
+position = Vector2(0, 32)
+scale = Vector2(1, 0.5)
+texture = ExtResource("2_4luaf")
+
+[node name="PressedSprite" type="Sprite2D" parent="." unique_id=333342465]
+visible = false
+position = Vector2(0, 48)
+scale = Vector2(1, 0.25)
+texture = ExtResource("2_4luaf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

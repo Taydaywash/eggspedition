@@ -4,3 +4,5 @@ extends Node
 signal change_room
 signal update_respawn_point
 signal recall_egg
+signal button_pressed
+signal button_unpressed

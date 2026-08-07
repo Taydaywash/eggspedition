@@ -253,7 +253,8 @@ animation_name = "full_egg_air_roll"
 [node name="FullEggFall" type="Node" parent="StateMachine" unique_id=2021791592 node_paths=PackedStringArray("jump_input_buffer")]
 script = ExtResource("7_52ee3")
 move_speed = 500
-distance_to_crack = 384.0
+air_move_acceleration = 5000.0
+distance_to_crack = 566.0
 jump_input_buffer = NodePath("../../JumpInputBuffer")
 animation_name = "full_egg_air_roll_fall"
 

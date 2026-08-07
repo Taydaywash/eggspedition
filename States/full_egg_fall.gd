@@ -2,6 +2,7 @@ extends State
 
 @export_category("Parameters")
 @export var move_speed : int
+@export var air_move_acceleration : float = 2000
 @export var distance_to_crack : float = 100
 @export var jump_input_buffer_delay : float = 0.2
 
@@ -25,8 +26,14 @@ func process_input(event : InputEvent) -> State:
 
 func process_physics(delta):
 	var input_direction = Input.get_axis("move_left","move_right")
-	if (abs(player.velocity.x) < move_speed) or (sign(input_direction) != sign(player.velocity.x)):
-		player.velocity.x = input_direction * move_speed
+	if not input_direction:
+		player.velocity.x = move_toward(player.velocity.x,0,delta*1000)
+	elif input_direction == sign(player.velocity.x):
+		player.velocity.x = move_toward(player.velocity.x,move_speed * input_direction,delta*1000)
+	elif abs(player.velocity.x) > move_speed:
+		player.velocity.x = move_toward(player.velocity.x,0,delta*2000)
+	else:
+		player.velocity.x = move_toward(player.velocity.x,move_speed * input_direction,delta*air_move_acceleration)
 	player.velocity.y = move_toward(player.velocity.y,player.max_fall_speed,delta * player.gravity)
 	player.move_and_slide()
 		
@@ -39,7 +46,7 @@ func process_physics(delta):
 			return state_machine.egg_to_yolk
 		if jump_input_buffer.time_left > 0:
 			return state_machine.full_egg_jump
-		if player.velocity.x:
+		if input_direction:
 			return state_machine.full_egg_walk
 		return state_machine.full_egg_idle
 	return
