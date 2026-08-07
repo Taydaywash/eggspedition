@@ -38,8 +38,8 @@ func play_animation(animation_name : String):
 		sprite.play("full_egg_idle")
 
 func _on_player_hurtbox_body_entered(_body: Node2D) -> void:
-	print("yes")
 	state_machine.change_state(state_machine.full_egg_idle)
+	print(Global.respawn_point)
 	position = Global.respawn_point
 
 func change_hitbox(hitbox_name: String) -> void:

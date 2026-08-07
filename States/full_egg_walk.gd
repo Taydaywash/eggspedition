@@ -6,6 +6,8 @@ var finishing_roll = false
 var can_exit_state = true
 
 func activate():
+	if abs(player.velocity.x) < move_speed:
+		player.velocity.x = 0
 	finishing_roll = false
 	super()
 
@@ -13,22 +15,29 @@ func process_input(event : InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		if player.is_on_floor():
 			return state_machine.full_egg_hop
-	if (event.is_action_pressed("move_left") and player.velocity.x >= 0 and (sprite.frame == 3 or sprite.frame == 4)):
-		if player.is_on_floor():
+	if (event.is_action_pressed("move_left") and player.velocity.x >= 0):
+		if (sprite.frame == 4):
 			player.velocity.x = -jump_horizontal_velocity
 			return state_machine.full_egg_jump
-	if (event.is_action_pressed("move_right") and player.velocity.x <= 0 and (sprite.frame == 3 or sprite.frame == 4)):
-		if player.is_on_floor():
+		else:
+			player.velocity.x = -move_speed
+			return state_machine.full_egg_walk
+	if (event.is_action_pressed("move_right") and player.velocity.x <= 0): 
+		if (sprite.frame == 4):
 			player.velocity.x = jump_horizontal_velocity
 			return state_machine.full_egg_jump
+		else:
+			player.velocity.x = move_speed
+			return state_machine.full_egg_walk
 	return
 
 func process_physics(delta):
-	var input_direction = 0
+	var input_direction = Input.get_axis("move_left","move_right")
 	if abs(player.velocity.x) > move_speed:
 		player.velocity.x = move_toward(player.velocity.x,move_speed * sign(player.velocity.x),delta*2000)
+	if not input_direction:
+		player.velocity.x = move_toward(player.velocity.x,0,delta*2000)
 	elif player.velocity.x == 0 and not finishing_roll:
-		input_direction = Input.get_axis("move_left","move_right")
 		player.velocity.x = input_direction * move_speed
 	if player.velocity.y >= 1:
 		return state_machine.full_egg_fall
@@ -36,7 +45,6 @@ func process_physics(delta):
 	player.move_and_slide()
 	if finishing_roll:
 		if can_exit_state:
-			input_direction = Input.get_axis("move_left","move_right")
 			if input_direction == 0:
 				return state_machine.full_egg_idle
 			else:

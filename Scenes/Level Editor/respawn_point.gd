@@ -3,8 +3,9 @@ extends Area2D
 
 func _ready() -> void:
 	SignalController.connect("update_respawn_point",func(respawn_point):
-		Global.respawn_point = ray_cast.get_collision_point()
 		if respawn_point == self:
+			Global.respawn_point = ray_cast.get_collision_point()
+			print(Global.respawn_point)
 			modulate = Color.GREEN
 		else:
 			modulate = Color.WHITE
