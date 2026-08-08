@@ -12,11 +12,11 @@ func activate():
 	super()
 	jump_input_buffer.wait_time = jump_input_buffer_delay
 
-func process_input(event : InputEvent) -> State:
-	if event.is_action_pressed("recall"):
-		SignalController.emit_signal("recall_egg")
-		return state_machine.yolk_to_egg
-	return
+#func process_input(event : InputEvent) -> State:
+	#if event.is_action_pressed("recall"):
+		#SignalController.emit_signal("recall_egg")
+		#return state_machine.yolk_to_egg
+	#return
 
 func process_physics(delta):
 	var input_direction = Input.get_axis("move_left","move_right")

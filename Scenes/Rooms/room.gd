@@ -11,6 +11,7 @@ func _ready() -> void:
 		else:
 			room_deactivated()
 		)
+		
 	await get_tree().process_frame
 	if room_active:
 		SignalController.emit_signal("change_room",self)

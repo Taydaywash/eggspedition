@@ -16,9 +16,9 @@ func activate():
 	peak_y = player.global_position.y
 	
 func process_input(event : InputEvent) -> State:
-	if event.is_action_pressed("recall"):
-		SignalController.emit_signal("recall_egg")
-		return state_machine.yolk_to_egg
+	#if event.is_action_pressed("recall"):
+		#SignalController.emit_signal("recall_egg")
+		#return state_machine.yolk_to_egg
 	if event.is_action_released("jump"):
 		player.velocity.y /= 2
 	return

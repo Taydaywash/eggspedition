@@ -8,6 +8,11 @@ func _ready() -> void:
 	is_moving = false
 	player = get_parent().get_node("Player")
 	SignalController.connect("recall_egg", move_egg_shell)
+	SignalController.connect("player_died",func ():
+		await SignalController.screen_is_black
+		call_deferred("queue_free")
+		)
+		
 	await get_tree().create_timer(0.1).timeout
 	set_deferred("monitorable", true)
 	set_deferred("monitoring", true)

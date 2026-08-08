@@ -40,9 +40,16 @@ func play_animation(animation_name : String):
 		sprite.play("full_egg_idle")
 
 func _on_player_hurtbox_body_entered(_body: Node2D) -> void:
-	state_machine.change_state(state_machine.full_egg_idle)
-	print(Global.respawn_point)
+	state_machine.change_state(state_machine.death)
+	sprite.play("death")
+	SignalController.emit_signal("player_died")
+	await sprite.animation_finished
+	SignalController.emit_signal("fade_to_black")
+	await SignalController.screen_is_clear
 	position = Global.respawn_point
+	sprite.play("respawn")
+	await sprite.animation_finished
+	state_machine.change_state(state_machine.full_egg_idle)
 
 func change_hitbox(hitbox_name: String) -> void:
 	if hitbox_name == "egg":

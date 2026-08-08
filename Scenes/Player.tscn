@@ -18,12 +18,19 @@
 [ext_resource type="Script" uid="uid://olunikc8cf75" path="res://States/full_egg_fall.gd" id="7_52ee3"]
 [ext_resource type="Texture2D" uid="uid://ew0eyvna1a74" path="res://Assets/cracked_egg/roll0005.png" id="7_70hv0"]
 [ext_resource type="Texture2D" uid="uid://d0mt7kqaw816v" path="res://Assets/full_egg/roll/roll0004.png" id="7_lslt6"]
+[ext_resource type="Texture2D" uid="uid://bqg4cr5stfqto" path="res://Assets/death/death0000.png" id="8_6hr71"]
 [ext_resource type="Script" uid="uid://rv0rllantypa" path="res://States/yolk_idle.gd" id="8_glx4g"]
 [ext_resource type="Texture2D" uid="uid://bxadbxg7u8exl" path="res://Assets/full_egg/roll/roll0005.png" id="8_ulo2v"]
 [ext_resource type="Script" uid="uid://6bl3voaqowxu" path="res://States/yolk_walk.gd" id="9_miouo"]
+[ext_resource type="Texture2D" uid="uid://dqsvq3u8werga" path="res://Assets/death/death0001.png" id="9_y6y60"]
+[ext_resource type="Texture2D" uid="uid://ovkmd63rxhfg" path="res://Assets/death/death0002.png" id="10_vmcrb"]
 [ext_resource type="Script" uid="uid://ck37i221ey0h1" path="res://States/yolk_fall.gd" id="11_1e7my"]
+[ext_resource type="Texture2D" uid="uid://c774kfbffx7ea" path="res://Assets/death/death0003.png" id="11_teras"]
+[ext_resource type="Texture2D" uid="uid://bxxonrpp77fde" path="res://Assets/death/death0004.png" id="12_8p516"]
 [ext_resource type="Script" uid="uid://c8ydk7crxlga" path="res://States/yolk_climb.gd" id="12_arntx"]
+[ext_resource type="Texture2D" uid="uid://k7evwgch1joa" path="res://Assets/death/death0005.png" id="13_fvoow"]
 [ext_resource type="Script" uid="uid://b3o458fo3o5ay" path="res://States/full_egg_hop.gd" id="14_o3h8g"]
+[ext_resource type="Texture2D" uid="uid://dunhy23wsi147" path="res://Assets/death/death0006.png" id="14_v5fqo"]
 [ext_resource type="Texture2D" uid="uid://dxldcsibc53cl" path="res://Assets/yolk/walk/walk0000.png" id="15_70hv0"]
 [ext_resource type="Texture2D" uid="uid://bnn3uy8ywa2uf" path="res://Assets/yolk/walk/walk0001.png" id="16_8flut"]
 [ext_resource type="Texture2D" uid="uid://bsf3nlv0jawvk" path="res://Assets/yolk/walk/walk0002.png" id="17_u7x0b"]
@@ -32,6 +39,7 @@
 [ext_resource type="Script" uid="uid://ce55m6gq3xx5f" path="res://States/full_egg_jump_from_yolk.gd" id="24_bfbt0"]
 [ext_resource type="Script" uid="uid://ddakolddp0s87" path="res://States/egg_to_yolk.gd" id="26_avx33"]
 [ext_resource type="PackedScene" uid="uid://cf5ac2d8jbxew" path="res://Scenes/egg_shell.tscn" id="27_xixlo"]
+[ext_resource type="Script" uid="uid://mlg1r735sdq4" path="res://States/death.gd" id="29_y6y60"]
 [ext_resource type="Script" uid="uid://86kdyrdon6xa" path="res://States/yolk_climb_idle.gd" id="31_c43xd"]
 [ext_resource type="Script" uid="uid://dgdtefxv8v5w4" path="res://States/yolk_to_egg.gd" id="33_rxg2u"]
 [ext_resource type="Script" uid="uid://xvp6ijo7fwa1" path="res://States/yolk_ascending.gd" id="33_wosd6"]
@@ -59,6 +67,32 @@ animations = [{
 }],
 "loop": 1,
 "name": &"cracked_egg_roll",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_6hr71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y6y60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vmcrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_teras")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8p516")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fvoow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_v5fqo")
+}],
+"loop": 0,
+"name": &"death",
 "speed": 12.0
 }, {
 "frames": [{
@@ -143,6 +177,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("14_v5fqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fvoow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8p516")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_teras")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vmcrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y6y60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6hr71")
+}],
+"loop": 0,
+"name": &"respawn",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("15_70hv0")
 }],
 "loop": 1,
@@ -207,7 +267,7 @@ egg_shell_detector = NodePath("EggShellDetector")
 
 [node name="Egg" type="AnimatedSprite2D" parent="." unique_id=1851985346]
 sprite_frames = SubResource("SpriteFrames_nn08x")
-animation = &"full_egg_idle"
+animation = &"respawn"
 autoplay = "full_egg_idle"
 
 [node name="FullEggHitbox" type="CollisionShape2D" parent="." unique_id=622051724]
@@ -218,9 +278,10 @@ position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_1iu4k")
 disabled = true
 
-[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_jump_from_yolk", "full_egg_fall", "full_egg_hop", "egg_to_yolk", "yolk_idle", "yolk_walk", "yolk_fall", "yolk_ascending", "yolk_climb", "yolk_climb_idle", "yolk_to_egg")]
+[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "death", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_jump_from_yolk", "full_egg_fall", "full_egg_hop", "egg_to_yolk", "yolk_idle", "yolk_walk", "yolk_fall", "yolk_ascending", "yolk_climb", "yolk_climb_idle", "yolk_to_egg")]
 script = ExtResource("3_52ee3")
 starting_state = NodePath("FullEggIdle")
+death = NodePath("Death")
 full_egg_idle = NodePath("FullEggIdle")
 full_egg_walk = NodePath("FullEggWalk")
 full_egg_jump = NodePath("FullEggJump")
@@ -239,6 +300,10 @@ yolk_to_egg = NodePath("YolkToEgg")
 [node name="FullEggIdle" type="Node" parent="StateMachine" unique_id=1699185401]
 script = ExtResource("4_bhhdu")
 animation_name = "full_egg_idle"
+
+[node name="Death" type="Node" parent="StateMachine" unique_id=1099927443]
+script = ExtResource("29_y6y60")
+animation_name = "death"
 
 [node name="FullEggWalk" type="Node" parent="StateMachine" unique_id=2016896665]
 script = ExtResource("5_megsn")

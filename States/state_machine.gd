@@ -6,6 +6,7 @@ var player : Player
 var sprite : AnimatedSprite2D
 @export var starting_state : State
 
+@export var death : State
 @export var full_egg_idle : State
 @export var full_egg_walk : State
 @export var full_egg_jump : State
