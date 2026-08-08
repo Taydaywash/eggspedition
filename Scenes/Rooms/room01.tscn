@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bvjb674tn5jt5" path="res://Scenes/Level Editor/background_tiles.tscn" id="2_1wv33"]
 [ext_resource type="PackedScene" uid="uid://cuxqj1s4dl3mc" path="res://Scenes/Level Editor/tiles.tscn" id="2_4ifr6"]
 [ext_resource type="PackedScene" uid="uid://co6k3u1mxanqq" path="res://Scenes/Level Editor/respawn_point.tscn" id="3_1wv33"]
+[ext_resource type="Texture2D" uid="uid://b5l3jnkjs7qej" path="res://Assets/background.png" id="4_4ifr6"]
 
 [node name="Room02" type="Node2D" unique_id=2138922023 node_paths=PackedStringArray("camera")]
 script = ExtResource("1_lscs1")
@@ -17,6 +18,14 @@ tile_map_data = PackedByteArray("AAAEAAQABAAIAAAAAAADAAQAAAACAAEAAAACAAQAAAACAAE
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=603716075]
 zoom = Vector2(0.26, 0.26)
+
+[node name="Background" type="Sprite2D" parent="Camera2D" unique_id=2018713537]
+modulate = Color(0.41598046, 0.41598043, 0.4159804, 1)
+z_index = -4
+z_as_relative = false
+position = Vector2(26.47446, 16.00008)
+scale = Vector2(4.0000005, 4.0000005)
+texture = ExtResource("4_4ifr6")
 
 [node name="RespawnPoint2" parent="." unique_id=115349368 instance=ExtResource("3_1wv33")]
 position = Vector2(-192, 448)

@@ -350,14 +350,12 @@ metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
 [node name="YolkIdle" type="Node" parent="StateMachine" unique_id=1826340498]
 script = ExtResource("8_glx4g")
-placeholder_state_color = Color(0.5372549, 1, 1, 1)
 animation_name = "yolk_idle"
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
 [node name="YolkWalk" type="Node" parent="StateMachine" unique_id=83157303]
 script = ExtResource("9_miouo")
 move_speed = 500
-placeholder_state_color = Color(0.49803922, 1, 0.5137255, 1)
 animation_name = "yolk_walk"
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
@@ -365,7 +363,6 @@ metadata/_custom_type_script = "uid://8no0e8ov66oa"
 script = ExtResource("11_1e7my")
 move_speed = 500
 jump_input_buffer = NodePath("../../JumpInputBuffer")
-placeholder_state_color = Color(1, 0, 1, 1)
 animation_name = "yolk_idle"
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
@@ -373,7 +370,6 @@ metadata/_custom_type_script = "uid://8no0e8ov66oa"
 script = ExtResource("33_wosd6")
 move_speed = 500
 jump_input_buffer = NodePath("../../JumpInputBuffer")
-placeholder_state_color = Color(0, 1, 0, 1)
 animation_name = "yolk_idle"
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 

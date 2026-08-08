@@ -483,5 +483,4 @@ sources/0 = SubResource("TileSetAtlasSource_lscs1")
 sources/1 = SubResource("TileSetAtlasSource_h354i")
 
 [node name="TileMapLayer" type="TileMapLayer" unique_id=534269224]
-z_index = -1
 tile_set = SubResource("TileSet_m6fao")

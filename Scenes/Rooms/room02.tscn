@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cuxqj1s4dl3mc" path="res://Scenes/Level Editor/tiles.tscn" id="2_jcyyr"]
 [ext_resource type="PackedScene" uid="uid://bvjb674tn5jt5" path="res://Scenes/Level Editor/background_tiles.tscn" id="3_iuq4n"]
 [ext_resource type="PackedScene" uid="uid://co6k3u1mxanqq" path="res://Scenes/Level Editor/respawn_point.tscn" id="3_p1yr2"]
+[ext_resource type="Texture2D" uid="uid://b5l3jnkjs7qej" path="res://Assets/background.png" id="4_6a34c"]
 [ext_resource type="PackedScene" uid="uid://cec2u2nnayelu" path="res://Scenes/Level Editor/weighted_button.tscn" id="5_mlw4c"]
 [ext_resource type="PackedScene" uid="uid://d0qeainmfqsop" path="res://Scenes/Level Editor/button_door.tscn" id="6_jnsle"]
 [ext_resource type="Texture2D" uid="uid://diafmwshc7esa" path="res://Assets/mouse.png" id="7_bo5go"]
@@ -22,6 +23,14 @@ tile_map_data = PackedByteArray("AAADAPv/BAALAAMAAAADAPr/BAALAAIAAAADAPn/BAALAAI
 position = Vector2(0, -768)
 enabled = false
 zoom = Vector2(0.3, 0.3)
+
+[node name="Background" type="Sprite2D" parent="Camera2D" unique_id=1592395571]
+modulate = Color(0.41598046, 0.41598043, 0.4159804, 1)
+z_index = -4
+z_as_relative = false
+position = Vector2(26.47446, 16.00008)
+scale = Vector2(4.0000005, 4.0000005)
+texture = ExtResource("4_6a34c")
 
 [node name="RespawnPoint" parent="." unique_id=1661387131 instance=ExtResource("3_p1yr2")]
 position = Vector2(-1728, -704)
