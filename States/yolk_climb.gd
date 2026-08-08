@@ -9,8 +9,6 @@ func activate():
 	super()
 
 func process_input(event : InputEvent) -> State:
-	#if event.is_action_pressed("jump"):
-		#return state_machine.yolk_jump
 	if event.is_action_pressed("recall"):
 		SignalController.emit_signal("recall_egg")
 		return state_machine.yolk_to_egg

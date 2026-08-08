@@ -15,5 +15,7 @@ func _ready() -> void:
 	collision_shape_2d.shape.set("size",door_size)
 	room = get_parent()
 	
-func _on_body_entered(_body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
+	if jump_on_enter and get_parent().room_active == false:
+		body.velocity.y = -1000
 	SignalController.emit_signal("change_room",room)

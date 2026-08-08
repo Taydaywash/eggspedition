@@ -6,22 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://ciukrafr6dngs" path="res://Scenes/Rooms/room01.tscn" id="4_8j60k"]
 [ext_resource type="PackedScene" uid="uid://bw7nmsfctfqg6" path="res://Scenes/Menu/pause_menu.tscn" id="5_fo5ed"]
 [ext_resource type="PackedScene" uid="uid://t7msdsukki8u" path="res://Scenes/Rooms/room03.tscn" id="6_5ukr8"]
+[ext_resource type="PackedScene" uid="uid://cdtc1nwtdkdsd" path="res://Scenes/Rooms/room04.tscn" id="7_o06y3"]
+[ext_resource type="PackedScene" uid="uid://bgxtrtt0o731a" path="res://Scenes/Rooms/room05.tscn" id="8_k7acu"]
 
 [node name="World" type="Node2D" unique_id=1490508392]
 
 [node name="Player" parent="." unique_id=327763569 instance=ExtResource("1_a02cp")]
-position = Vector2(-1536, 320)
+position = Vector2(10368, -960)
 
 [node name="PauseMenu" parent="." unique_id=137025361 instance=ExtResource("5_fo5ed")]
 
 [node name="Room01" parent="." unique_id=385656405 instance=ExtResource("4_8j60k")]
 position = Vector2(384, -384)
-room_active = true
 
 [node name="Door" parent="Room01" unique_id=1604017987 instance=ExtResource("3_8j60k")]
 position = Vector2(2176, -64)
 door_size = Vector2(100, 400)
-jump_on_enter = false
 
 [node name="Room02" parent="." unique_id=2138922023 instance=ExtResource("2_5a7ea")]
 position = Vector2(4800, 384)
@@ -29,12 +29,10 @@ position = Vector2(4800, 384)
 [node name="Door" parent="Room02" unique_id=1105916116 instance=ExtResource("3_8j60k")]
 position = Vector2(-1920, -832)
 door_size = Vector2(100, 400)
-jump_on_enter = false
 
 [node name="Door2" parent="Room02" unique_id=1734557259 instance=ExtResource("3_8j60k")]
 position = Vector2(1920, -832)
 door_size = Vector2(100, 400)
-jump_on_enter = false
 
 [node name="Room03" parent="." unique_id=174377077 instance=ExtResource("6_5ukr8")]
 position = Vector2(9152, 384)
@@ -42,4 +40,31 @@ position = Vector2(9152, 384)
 [node name="Door" parent="Room03" unique_id=864328206 instance=ExtResource("3_8j60k")]
 position = Vector2(-2112, -832)
 door_size = Vector2(100, 400)
-jump_on_enter = false
+
+[node name="Door2" parent="Room03" unique_id=694192818 instance=ExtResource("3_8j60k")]
+position = Vector2(704, -1472)
+door_size = Vector2(100, 400)
+
+[node name="Door3" parent="Room03" unique_id=1550622321 instance=ExtResource("3_8j60k")]
+position = Vector2(128, -1792)
+door_size = Vector2(400, 100)
+
+[node name="Room04" parent="." unique_id=1231950525 instance=ExtResource("7_o06y3")]
+position = Vector2(12288, -256)
+room_active = true
+
+[node name="Door" parent="Room04" unique_id=1338414732 instance=ExtResource("3_8j60k")]
+position = Vector2(-2112, -832)
+door_size = Vector2(100, 400)
+
+[node name="Door2" parent="Room04" unique_id=1709857556 instance=ExtResource("3_8j60k")]
+position = Vector2(-1216, -1728)
+door_size = Vector2(400, 100)
+
+[node name="Room05" parent="." unique_id=476939788 instance=ExtResource("8_k7acu")]
+position = Vector2(12288, -2048)
+
+[node name="Door2" parent="Room05" unique_id=1899177964 instance=ExtResource("3_8j60k")]
+position = Vector2(-1216, -256)
+door_size = Vector2(400, 100)
+jump_on_enter = true

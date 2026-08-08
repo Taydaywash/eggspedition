@@ -21,7 +21,6 @@
 [ext_resource type="Script" uid="uid://rv0rllantypa" path="res://States/yolk_idle.gd" id="8_glx4g"]
 [ext_resource type="Texture2D" uid="uid://bxadbxg7u8exl" path="res://Assets/full_egg/roll/roll0005.png" id="8_ulo2v"]
 [ext_resource type="Script" uid="uid://6bl3voaqowxu" path="res://States/yolk_walk.gd" id="9_miouo"]
-[ext_resource type="Script" uid="uid://byri866icvwmx" path="res://States/yolk_jump.gd" id="10_o3h8g"]
 [ext_resource type="Script" uid="uid://ck37i221ey0h1" path="res://States/yolk_fall.gd" id="11_1e7my"]
 [ext_resource type="Script" uid="uid://c8ydk7crxlga" path="res://States/yolk_climb.gd" id="12_arntx"]
 [ext_resource type="Script" uid="uid://b3o458fo3o5ay" path="res://States/full_egg_hop.gd" id="14_o3h8g"]
@@ -219,7 +218,7 @@ position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_1iu4k")
 disabled = true
 
-[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_jump_from_yolk", "full_egg_fall", "full_egg_hop", "egg_to_yolk", "yolk_idle", "yolk_walk", "yolk_jump", "yolk_fall", "yolk_ascending", "yolk_climb", "yolk_climb_idle", "yolk_to_egg")]
+[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_jump_from_yolk", "full_egg_fall", "full_egg_hop", "egg_to_yolk", "yolk_idle", "yolk_walk", "yolk_fall", "yolk_ascending", "yolk_climb", "yolk_climb_idle", "yolk_to_egg")]
 script = ExtResource("3_52ee3")
 starting_state = NodePath("FullEggIdle")
 full_egg_idle = NodePath("FullEggIdle")
@@ -231,7 +230,6 @@ full_egg_hop = NodePath("FullEggHop")
 egg_to_yolk = NodePath("EggToYolk")
 yolk_idle = NodePath("YolkIdle")
 yolk_walk = NodePath("YolkWalk")
-yolk_jump = NodePath("YolkJump")
 yolk_fall = NodePath("YolkFall")
 yolk_ascending = NodePath("YolkAscending")
 yolk_climb = NodePath("YolkClimb")
@@ -294,14 +292,6 @@ script = ExtResource("9_miouo")
 move_speed = 500
 placeholder_state_color = Color(0.49803922, 1, 0.5137255, 1)
 animation_name = "yolk_walk"
-metadata/_custom_type_script = "uid://8no0e8ov66oa"
-
-[node name="YolkJump" type="Node" parent="StateMachine" unique_id=1599529363 node_paths=PackedStringArray("jump_input_buffer")]
-script = ExtResource("10_o3h8g")
-jump_velocity = 500
-jump_input_buffer = NodePath("../../JumpInputBuffer")
-placeholder_state_color = Color(1, 0, 0, 1)
-animation_name = "yolk_idle"
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
 [node name="YolkFall" type="Node" parent="StateMachine" unique_id=1872056286 node_paths=PackedStringArray("jump_input_buffer")]
