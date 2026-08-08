@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b65vcgxdmpg5b" path="res://Scenes/Rooms/room02.tscn" id="2_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://fvwbjvsrk2eg" path="res://Scenes/Level Editor/door.tscn" id="3_8j60k"]
 [ext_resource type="PackedScene" uid="uid://ciukrafr6dngs" path="res://Scenes/Rooms/room01.tscn" id="4_8j60k"]
+[ext_resource type="PackedScene" uid="uid://bw7nmsfctfqg6" path="res://Scenes/Menu/pause_menu.tscn" id="5_fo5ed"]
 
 [node name="World" type="Node2D" unique_id=1490508392]
 
@@ -26,3 +27,5 @@ position = Vector2(4928, 384)
 position = Vector2(-2048, -832)
 door_size = Vector2(100, 400)
 jump_on_enter = false
+
+[node name="PauseMenu" parent="." unique_id=137025361 instance=ExtResource("5_fo5ed")]
