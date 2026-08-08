@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djbf6djt23gxh"
+path="res://.godot/imported/please eggsplain.mp3-1f560ef1d8a3e63bbe88d85799806971.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/please eggsplain.mp3"
+dest_files=["res://.godot/imported/please eggsplain.mp3-1f560ef1d8a3e63bbe88d85799806971.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
