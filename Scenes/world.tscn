@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cdtc1nwtdkdsd" path="res://Scenes/Rooms/room04.tscn" id="7_o06y3"]
 [ext_resource type="PackedScene" uid="uid://bgxtrtt0o731a" path="res://Scenes/Rooms/room05.tscn" id="8_k7acu"]
 [ext_resource type="PackedScene" uid="uid://cs306113p6vix" path="res://Scenes/Rooms/room04_secret.tscn" id="9_0fj1v"]
+[ext_resource type="PackedScene" uid="uid://dqsikhqqoy2hj" path="res://Scenes/Rooms/room06.tscn" id="13_c5t2i"]
 
 [sub_resource type="Animation" id="Animation_0fj1v"]
 length = 0.001
@@ -74,7 +75,7 @@ script = ExtResource("1_5v1tr")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Player" parent="." unique_id=327763569 instance=ExtResource("1_a02cp")]
-position = Vector2(3264, -384)
+position = Vector2(9600, -2752)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" unique_id=1416714650]
 stream = ExtResource("4_ikia7")
@@ -84,7 +85,6 @@ panning_strength = 0.0
 parameters/looping = true
 
 [node name="PauseMenu" parent="." unique_id=137025361 instance=ExtResource("5_fo5ed")]
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1618492330]
 libraries/ = SubResource("AnimationLibrary_c5t2i")
@@ -109,7 +109,6 @@ door_size = Vector2(100, 400)
 
 [node name="Room02" parent="." unique_id=2138922023 instance=ExtResource("2_5a7ea")]
 position = Vector2(4800, 384)
-room_active = true
 
 [node name="Door" parent="Room02" unique_id=1105916116 instance=ExtResource("3_8j60k")]
 position = Vector2(-1920, -832)
@@ -163,3 +162,19 @@ position = Vector2(12288, -2048)
 position = Vector2(-1216, -256)
 door_size = Vector2(400, 100)
 jump_on_enter = true
+
+[node name="Door3" parent="Room05" unique_id=159903821 instance=ExtResource("3_8j60k")]
+position = Vector2(-2112, -832)
+door_size = Vector2(100, 400)
+
+[node name="Room06" parent="." unique_id=1723368598 instance=ExtResource("13_c5t2i")]
+position = Vector2(9024, -1408)
+room_active = true
+
+[node name="Door3" parent="Room06" unique_id=820987465 instance=ExtResource("3_8j60k")]
+position = Vector2(832, -1472)
+door_size = Vector2(100, 400)
+
+[node name="Door4" parent="Room06" unique_id=1003580166 instance=ExtResource("3_8j60k")]
+position = Vector2(-2240, -1408)
+door_size = Vector2(100, 400)
