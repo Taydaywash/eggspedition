@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bgxtrtt0o731a" path="res://Scenes/Rooms/room05.tscn" id="8_k7acu"]
 [ext_resource type="PackedScene" uid="uid://cs306113p6vix" path="res://Scenes/Rooms/room04_secret.tscn" id="9_0fj1v"]
 [ext_resource type="PackedScene" uid="uid://dqsikhqqoy2hj" path="res://Scenes/Rooms/room06.tscn" id="13_c5t2i"]
+[ext_resource type="PackedScene" uid="uid://eib0gmntvc4o" path="res://Scenes/Rooms/room07.tscn" id="13_e0ngr"]
 
 [sub_resource type="Animation" id="Animation_0fj1v"]
 length = 0.001
@@ -129,10 +130,6 @@ door_size = Vector2(100, 400)
 position = Vector2(704, -1472)
 door_size = Vector2(100, 400)
 
-[node name="Door3" parent="Room03" unique_id=1550622321 instance=ExtResource("3_8j60k")]
-position = Vector2(128, -1792)
-door_size = Vector2(400, 100)
-
 [node name="Room04" parent="." unique_id=1231950525 instance=ExtResource("7_o06y3")]
 position = Vector2(12288, -256)
 
@@ -176,5 +173,12 @@ position = Vector2(832, -1472)
 door_size = Vector2(100, 400)
 
 [node name="Door4" parent="Room06" unique_id=1003580166 instance=ExtResource("3_8j60k")]
-position = Vector2(-2240, -1408)
+position = Vector2(832, -2560)
+door_size = Vector2(100, 400)
+
+[node name="Room07" parent="." unique_id=1215245988 instance=ExtResource("13_e0ngr")]
+position = Vector2(11648, -4352)
+
+[node name="Door4" parent="Room07" unique_id=791512375 instance=ExtResource("3_8j60k")]
+position = Vector2(-1472, 384)
 door_size = Vector2(100, 400)

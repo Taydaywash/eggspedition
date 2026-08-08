@@ -15,6 +15,7 @@ unpressed_sprite = NodePath("UnpressedSprite")
 pressed_sprite = NodePath("PressedSprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=413089575]
+z_index = -2
 position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_4luaf")
 

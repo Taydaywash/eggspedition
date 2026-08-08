@@ -267,15 +267,15 @@ egg_shell_detector = NodePath("EggShellDetector")
 
 [node name="Egg" type="AnimatedSprite2D" parent="." unique_id=1851985346]
 sprite_frames = SubResource("SpriteFrames_nn08x")
-animation = &"death"
+animation = &"full_egg_idle"
 autoplay = "full_egg_idle"
-frame = 6
-frame_progress = 1.0
 
 [node name="FullEggHitbox" type="CollisionShape2D" parent="." unique_id=622051724]
+z_index = -2
 shape = SubResource("RectangleShape2D_kyqiw")
 
 [node name="YolkHitbox" type="CollisionShape2D" parent="." unique_id=715961711]
+z_index = -2
 position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_1iu4k")
 disabled = true
@@ -396,6 +396,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EggHurtbox" unique_id=1400823064]
+z_index = -2
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_6vjpb")
 debug_color = Color(0.9760842, 0, 0.41811177, 0.41960785)
@@ -407,6 +408,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YolkHurtbox" unique_id=543231320]
+z_index = -2
 position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_lyrkg")
 debug_color = Color(0.9740549, 0, 0.43297637, 0.41960785)
@@ -416,6 +418,7 @@ collision_layer = 2
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClimbingDetector" unique_id=1569987439]
+z_index = -2
 position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_b1lth")
 
@@ -424,6 +427,7 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EggShellDetector" unique_id=1023121110]
+z_index = -2
 position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_glm38")
 

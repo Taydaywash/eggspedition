@@ -115,6 +115,7 @@ position = Vector2(0, -9.536743e-06)
 texture = ExtResource("2_ger10")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=422387281]
+z_index = -1
 shape = SubResource("RectangleShape2D_nl8pl")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D" unique_id=1494560041]
@@ -122,6 +123,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D" unique_id=1076151774]
+z_index = -1
 position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_58i6i")
 debug_color = Color(0.98391527, 0, 0.35294843, 0.41960785)

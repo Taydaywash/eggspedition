@@ -30,5 +30,5 @@ func _on_egg_shell_detector_area_entered(area):
 	if "is_moving" in area: 
 		if area.is_moving:
 			direction = (player.global_position - area.global_position).normalized()
-			area.call_deferred("queue_free")
+			area.delete()
 			egg_returned = true

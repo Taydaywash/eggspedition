@@ -42,6 +42,7 @@ ray_cast = NodePath("RayCast2D")
 sprite = NodePath("sprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807040908]
+z_index = -1
 shape = SubResource("RectangleShape2D_nl8pl")
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1047303928]

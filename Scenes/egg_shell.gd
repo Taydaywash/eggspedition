@@ -12,15 +12,18 @@ func _ready() -> void:
 	SignalController.connect("recall_egg", move_egg_shell)
 	SignalController.connect("player_died",func ():
 		await SignalController.screen_is_black
-		position = Vector2.INF
-		await get_tree().process_frame
-		call_deferred("queue_free")
+		delete()
 		)
 		
 	await get_tree().create_timer(0.1).timeout
 	set_deferred("monitorable", true)
 	set_deferred("monitoring", true)
-	
+
+func delete():
+	position = Vector2.INF
+	await get_tree().process_frame
+	call_deferred("queue_free")
+
 func _process(delta):
 	if player and is_moving:
 		sprite.z_index = 1
