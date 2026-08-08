@@ -5,7 +5,6 @@ class_name Door
 @export var door_size : Vector2 = Vector2(300,300)
 @export var collision_shape_2d: CollisionShape2D
 var room : Room
-@export var connected_room_spawn_position : Vector2 = Vector2(300,300)
 
 @export var jump_on_enter : bool = false
 
