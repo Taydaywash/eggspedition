@@ -11,6 +11,7 @@ var sprite : AnimatedSprite2D
 @export var full_egg_jump : State
 @export var full_egg_jump_from_yolk: State
 @export var full_egg_fall: State
+@export var full_egg_fast_fall: State
 @export var full_egg_hop: State
 @export var egg_to_yolk: State
 @export var yolk_idle: State

@@ -14,7 +14,7 @@ var fall_distance: float = 0.0
 
 func activate():
 	super()
-	peak_y = player.global_position.y
+	peak_y = player.global_position.y - player.fall_distance
 	jump_input_buffer.wait_time = jump_input_buffer_delay
 	
 func process_input(event : InputEvent) -> State:
@@ -41,8 +41,6 @@ func process_physics(delta):
 		peak_y = player.global_position.y
 	fall_distance = abs(peak_y - player.global_position.y)
 	player.fall_distance = fall_distance
-	if fall_distance > (128 * 5.5):
-		return state_machine.full_egg_fast_fall
 	if player.velocity.y == 0:
 		if fall_distance > distance_to_crack:
 			return state_machine.egg_to_yolk

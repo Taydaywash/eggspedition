@@ -6,14 +6,11 @@ extends State
 @export_category("References")
 @export var jump_input_buffer: Timer
 
-var peak_y: float = 0.0
-var fall_distance: float = 0.0
 var is_cracked: float = false
 
 func activate():
 	super()
 	jump_input_buffer.wait_time = jump_input_buffer_delay
-	peak_y = player.global_position.y
 
 func process_input(event : InputEvent) -> State:
 	#if (event.is_action_pressed("move_left") or event.is_action_pressed("move_right") or
@@ -41,13 +38,5 @@ func process_physics(delta):
 		if jump_input_buffer.time_left > 0:
 			return state_machine.yolk_jump
 		return state_machine.yolk_idle
-		
-	if player.global_position.y < peak_y:
-		peak_y = player.global_position.y
 	
 	return
-	
-func deactivate():
-	super()
-	fall_distance = abs(peak_y - player.global_position.y)
-	peak_y = player.global_position.y
