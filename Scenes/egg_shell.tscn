@@ -1,24 +1,24 @@
 [gd_scene format=3 uid="uid://cf5ac2d8jbxew"]
 
 [ext_resource type="Script" uid="uid://bihaxamive65t" path="res://Scenes/egg_shell.gd" id="1_48pgx"]
-[ext_resource type="Texture2D" uid="uid://bklw5jx4x2k5e" path="res://Assets/cracked_egg/roll0000.png" id="2_wfc01"]
+[ext_resource type="Texture2D" uid="uid://b76a5gv64067g" path="res://Assets/eggshell.png" id="2_48pgx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vjpb"]
 size = Vector2(176, 112)
 
-[node name="EggShell" type="Area2D" unique_id=726918122]
+[node name="EggShell" type="Area2D" unique_id=726918122 node_paths=PackedStringArray("sprite")]
 z_index = -1
 collision_layer = 16
 collision_mask = 2
 monitoring = false
 monitorable = false
 script = ExtResource("1_48pgx")
+sprite = NodePath("Sprite")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1057441077]
-modulate = Color(1, 1, 0.4392157, 1)
-position = Vector2(0, 0.75)
-rotation = 1.5707964
-texture = ExtResource("2_wfc01")
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1057441077]
+z_index = -1
+position = Vector2(0, -64)
+texture = ExtResource("2_48pgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=26833818]
 shape = SubResource("RectangleShape2D_6vjpb")

@@ -93,7 +93,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"death",
-"speed": 12.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -199,7 +199,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"respawn",
-"speed": 12.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -267,8 +267,10 @@ egg_shell_detector = NodePath("EggShellDetector")
 
 [node name="Egg" type="AnimatedSprite2D" parent="." unique_id=1851985346]
 sprite_frames = SubResource("SpriteFrames_nn08x")
-animation = &"respawn"
+animation = &"death"
 autoplay = "full_egg_idle"
+frame = 6
+frame_progress = 1.0
 
 [node name="FullEggHitbox" type="CollisionShape2D" parent="." unique_id=622051724]
 shape = SubResource("RectangleShape2D_kyqiw")

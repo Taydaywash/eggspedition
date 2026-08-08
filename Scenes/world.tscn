@@ -29,7 +29,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ikia7"]
 resource_name = "fade_to_black"
-length = 0.3
+length = 0.19999999999999998
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -37,7 +37,7 @@ tracks/0/path = NodePath("AnimationPlayer/CanvasLayer/Black:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(2.2973971, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -45,7 +45,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_7yui6"]
 resource_name = "fade_to_clear"
-length = 0.3
+length = 0.19999999999999998
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -53,7 +53,7 @@ tracks/0/path = NodePath("AnimationPlayer/CanvasLayer/Black:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(2.5491211, 4.756827),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -74,7 +74,7 @@ script = ExtResource("1_5v1tr")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Player" parent="." unique_id=327763569 instance=ExtResource("1_a02cp")]
-position = Vector2(2048, -320)
+position = Vector2(-1536, 320)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" unique_id=1416714650]
 stream = ExtResource("4_ikia7")

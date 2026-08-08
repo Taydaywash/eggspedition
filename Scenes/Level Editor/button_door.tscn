@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d0qeainmfqsop"]
 
 [ext_resource type="Script" uid="uid://bnd0ugutb1vps" path="res://ButtonDoor.gd" id="1_67lek"]
-[ext_resource type="Texture2D" uid="uid://b1kmx516mcvcb" path="res://Assets/icon.svg" id="2_ger10"]
+[ext_resource type="Texture2D" uid="uid://byohr5vg7hfhs" path="res://Assets/levelEditor/door.png" id="2_ger10"]
 
 [sub_resource type="Animation" id="Animation_ger10"]
 length = 0.001
@@ -111,7 +111,6 @@ libraries/ = SubResource("AnimationLibrary_7t7ma")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1750052261]
 position = Vector2(0, -9.536743e-06)
-scale = Vector2(1, 1.9999999)
 texture = ExtResource("2_ger10")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=422387281]

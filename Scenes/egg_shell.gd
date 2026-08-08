@@ -4,6 +4,8 @@ var player: Player = null
 var is_moving: bool = false
 const move_speed: float = 2500
 
+@export var sprite: Sprite2D
+
 func _ready() -> void:
 	is_moving = false
 	player = get_parent().get_node("Player")
@@ -19,8 +21,11 @@ func _ready() -> void:
 	
 func _process(delta):
 	if player and is_moving:
+		sprite.z_index = 1
 		rotation += .05
 		global_position = global_position.move_toward(player.global_position, move_speed * delta)
+	else:
+		sprite.z_index = -1
 
 func move_egg_shell() -> void:
 	is_moving = true
