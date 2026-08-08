@@ -12,6 +12,8 @@ func _ready() -> void:
 	SignalController.connect("recall_egg", move_egg_shell)
 	SignalController.connect("player_died",func ():
 		await SignalController.screen_is_black
+		position = Vector2.INF
+		await get_tree().process_frame
 		call_deferred("queue_free")
 		)
 		

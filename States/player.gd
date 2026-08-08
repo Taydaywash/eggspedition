@@ -56,8 +56,8 @@ func change_hitbox(hitbox_name: String) -> void:
 		full_egg_hitbox.set_deferred("disabled", false)
 		yolk_hitbox.set_deferred("disabled", true)
 	elif hitbox_name == "yolk":
-		full_egg_hitbox.set_deferred("disabled", true)
 		yolk_hitbox.set_deferred("disabled", false)
+		full_egg_hitbox.set_deferred("disabled", true)
 
 func change_hurtbox(hurtbox_name: String) -> void:
 	if hurtbox_name == "egg":
@@ -66,7 +66,7 @@ func change_hurtbox(hurtbox_name: String) -> void:
 		yolk_hurtbox.set_deferred("monitoring", false)
 		yolk_hurtbox.set_deferred("monitorable", false)
 	elif hurtbox_name == "yolk":
-		full_egg_hurtbox.set_deferred("monitoring", false)
-		full_egg_hurtbox.set_deferred("monitorable", false)
 		yolk_hurtbox.set_deferred("monitoring", true)
 		yolk_hurtbox.set_deferred("monitorable", true)
+		full_egg_hurtbox.set_deferred("monitoring", false)
+		full_egg_hurtbox.set_deferred("monitorable", false)

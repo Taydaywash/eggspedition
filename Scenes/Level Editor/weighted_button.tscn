@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bo2q0c3khmik2" path="res://Assets/levelEditor/button_pressed.png" id="3_h3e4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4luaf"]
-size = Vector2(128, 64)
+size = Vector2(128, 96)
 
 [node name="DoorButton" type="Area2D" unique_id=329787129 node_paths=PackedStringArray("unpressed_sprite", "pressed_sprite")]
 collision_layer = 0
@@ -15,7 +15,7 @@ unpressed_sprite = NodePath("UnpressedSprite")
 pressed_sprite = NodePath("PressedSprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=413089575]
-position = Vector2(0, 32)
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_4luaf")
 
 [node name="UnpressedSprite" type="Sprite2D" parent="." unique_id=1726988681]

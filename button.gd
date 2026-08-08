@@ -6,14 +6,21 @@ var pressed : bool = false
 @export var unpressed_sprite: Sprite2D
 @export var pressed_sprite: Sprite2D
 
+func _ready() -> void:
+	SignalController.connect("player_died", func():
+		await SignalController.screen_is_black
+		button_unpressed()
+		)
 
 func button_pressed():
+	print("buttton pressed")
 	SignalController.emit_signal("button_pressed",connected_doors)
 	pressed = true
 	unpressed_sprite.visible = false
 	pressed_sprite.visible = true
 
 func button_unpressed():
+	print("buttton unpressed")
 	SignalController.emit_signal("button_unpressed",connected_doors)
 	pressed = false
 	unpressed_sprite.visible = true
