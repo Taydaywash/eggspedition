@@ -10,7 +10,7 @@ func activate():
 	super()
 	player.change_hitbox("yolk")
 	player.change_hurtbox("yolk")
-	difference_velocity = sqrt(player.fall_distance * player.gravity * bounce_multiplier)
+	difference_velocity = sqrt(player.fall_distance * player.gravity * bounce_multiplier) 
 
 func process_input(_event : InputEvent) -> State:
 	return
@@ -19,7 +19,7 @@ func process_physics(_delta) -> State:
 	player.velocity.y = -difference_velocity
 	player.move_and_slide()
 	spawn_egg_shell()
-	return state_machine.yolk_fall
+	return state_machine.yolk_ascending
 
 func deactivate():
 	super()

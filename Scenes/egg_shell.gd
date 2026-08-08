@@ -2,7 +2,7 @@ extends Area2D
 
 var player: Player = null
 var is_moving: bool = false
-const move_speed: float = 1500
+const move_speed: float = 2500
 
 func _ready() -> void:
 	is_moving = false

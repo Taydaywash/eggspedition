@@ -17,6 +17,7 @@ var sprite : AnimatedSprite2D
 @export var yolk_walk: State
 @export var yolk_jump: State
 @export var yolk_fall: State
+@export var yolk_ascending: State
 @export var yolk_climb: State
 @export var yolk_climb_idle: State
 @export var yolk_to_egg: State

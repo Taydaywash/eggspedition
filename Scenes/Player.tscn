@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://cf5ac2d8jbxew" path="res://Scenes/egg_shell.tscn" id="27_xixlo"]
 [ext_resource type="Script" uid="uid://86kdyrdon6xa" path="res://States/yolk_climb_idle.gd" id="31_c43xd"]
 [ext_resource type="Script" uid="uid://dgdtefxv8v5w4" path="res://States/yolk_to_egg.gd" id="33_rxg2u"]
+[ext_resource type="Script" uid="uid://xvp6ijo7fwa1" path="res://States/yolk_ascending.gd" id="33_wosd6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nn08x"]
 animations = [{
@@ -218,7 +219,7 @@ position = Vector2(0, 44)
 shape = SubResource("RectangleShape2D_1iu4k")
 disabled = true
 
-[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_jump_from_yolk", "full_egg_fall", "full_egg_hop", "egg_to_yolk", "yolk_idle", "yolk_walk", "yolk_jump", "yolk_fall", "yolk_climb", "yolk_climb_idle", "yolk_to_egg")]
+[node name="StateMachine" type="Node" parent="." unique_id=840240809 node_paths=PackedStringArray("starting_state", "full_egg_idle", "full_egg_walk", "full_egg_jump", "full_egg_jump_from_yolk", "full_egg_fall", "full_egg_hop", "egg_to_yolk", "yolk_idle", "yolk_walk", "yolk_jump", "yolk_fall", "yolk_ascending", "yolk_climb", "yolk_climb_idle", "yolk_to_egg")]
 script = ExtResource("3_52ee3")
 starting_state = NodePath("FullEggIdle")
 full_egg_idle = NodePath("FullEggIdle")
@@ -232,6 +233,7 @@ yolk_idle = NodePath("YolkIdle")
 yolk_walk = NodePath("YolkWalk")
 yolk_jump = NodePath("YolkJump")
 yolk_fall = NodePath("YolkFall")
+yolk_ascending = NodePath("YolkAscending")
 yolk_climb = NodePath("YolkClimb")
 yolk_climb_idle = NodePath("YolkClimbIdle")
 yolk_to_egg = NodePath("YolkToEgg")
@@ -276,6 +278,7 @@ animation_name = "full_egg_air_roll_fall"
 
 [node name="EggToYolk" type="Node" parent="StateMachine" unique_id=49657149]
 script = ExtResource("26_avx33")
+bounce_multiplier = 1.2
 egg_shell_scene = ExtResource("27_xixlo")
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
@@ -305,6 +308,14 @@ script = ExtResource("11_1e7my")
 move_speed = 500
 jump_input_buffer = NodePath("../../JumpInputBuffer")
 placeholder_state_color = Color(1, 0, 1, 1)
+animation_name = "yolk_idle"
+metadata/_custom_type_script = "uid://8no0e8ov66oa"
+
+[node name="YolkAscending" type="Node" parent="StateMachine" unique_id=1067526839 node_paths=PackedStringArray("jump_input_buffer")]
+script = ExtResource("33_wosd6")
+move_speed = 500
+jump_input_buffer = NodePath("../../JumpInputBuffer")
+placeholder_state_color = Color(0, 1, 0, 1)
 animation_name = "yolk_idle"
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
