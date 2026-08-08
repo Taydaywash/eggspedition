@@ -1,7 +1,7 @@
 extends State
 
 @export var bounce_multiplier: float = 1.0
-
+@export var jump_input_buffer: Timer
 @export var egg_shell_scene: PackedScene
 
 var difference_velocity: float
@@ -11,7 +11,7 @@ func activate():
 	player.change_hitbox("yolk")
 	player.change_hurtbox("yolk")
 	difference_velocity = sqrt(player.fall_distance * player.gravity * bounce_multiplier) 
-	if player.fall_distance > (128 * 5.5):
+	if jump_input_buffer.time_left:
 		player.velocity.y = -difference_velocity
 	else:
 		player.velocity.y = -500

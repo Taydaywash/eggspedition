@@ -41,8 +41,6 @@ func process_physics(delta):
 		peak_y = player.global_position.y
 	fall_distance = abs(peak_y - player.global_position.y)
 	player.fall_distance = fall_distance
-	if fall_distance > (128 * 5.5):
-		return state_machine.full_egg_fast_fall
 	if player.velocity.y == 0:
 		if fall_distance > distance_to_crack:
 			return state_machine.egg_to_yolk

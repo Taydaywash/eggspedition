@@ -24,10 +24,10 @@ door_size = Vector2(100, 400)
 jump_on_enter = false
 
 [node name="Room02" parent="." unique_id=2138922023 instance=ExtResource("2_5a7ea")]
-position = Vector2(4928, 384)
+position = Vector2(4800, 384)
 
 [node name="Door" parent="Room02" unique_id=1105916116 instance=ExtResource("3_8j60k")]
-position = Vector2(-2048, -832)
+position = Vector2(-1920, -832)
 door_size = Vector2(100, 400)
 jump_on_enter = false
 
@@ -37,9 +37,9 @@ door_size = Vector2(100, 400)
 jump_on_enter = false
 
 [node name="Room03" parent="." unique_id=174377077 instance=ExtResource("6_5ukr8")]
-position = Vector2(9216, 384)
+position = Vector2(9152, 384)
 
 [node name="Door" parent="Room03" unique_id=864328206 instance=ExtResource("3_8j60k")]
-position = Vector2(-2048, -832)
+position = Vector2(-2112, -832)
 door_size = Vector2(100, 400)
 jump_on_enter = false
