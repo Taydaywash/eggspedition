@@ -3,9 +3,9 @@ extends State
 @export var move_speed : int = 50
 
 func process_input(event : InputEvent) -> State:
-	if event.is_action_pressed("jump"):
-		if player.is_on_floor():
-			return state_machine.yolk_jump
+	#if event.is_action_pressed("jump"):
+		#if player.is_on_floor():
+			#return state_machine.yolk_jump
 	if event.is_action_pressed("recall"):
 		SignalController.emit_signal("recall_egg")
 		return state_machine.yolk_to_egg

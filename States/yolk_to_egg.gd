@@ -19,7 +19,8 @@ func process_physics(_delta) -> State:
 	if egg_returned:
 		player.velocity = direction * push_speed
 		#player.move_and_slide()
-		return state_machine.full_egg_jump
+		return state_machine.full_egg_jump_from_yolk
+		#return state_machine.full_egg_jump
 	return
 
 func deactivate():

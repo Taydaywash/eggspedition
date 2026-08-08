@@ -17,6 +17,7 @@ class_name Player
 @export var egg_shell_detector: Area2D
 
 var is_on_climbable: bool = false
+var fall_distance = 0
 
 func _ready() -> void:
 	state_machine.player = self
