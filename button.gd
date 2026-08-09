@@ -13,18 +13,16 @@ func _ready() -> void:
 		)
 
 func button_pressed():
-	print("buttton pressed")
-	SignalController.emit_signal("button_pressed",connected_doors)
 	pressed = true
 	unpressed_sprite.visible = false
 	pressed_sprite.visible = true
+	SignalController.emit_signal("button_pressed",connected_doors)
 
 func button_unpressed():
-	print("buttton unpressed")
-	SignalController.emit_signal("button_unpressed",connected_doors)
 	pressed = false
 	unpressed_sprite.visible = true
 	pressed_sprite.visible = false
+	SignalController.emit_signal("button_unpressed",connected_doors)
 
 func _on_body_entered(_body: Node2D) -> void:
 	if not pressed:

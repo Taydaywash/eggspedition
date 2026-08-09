@@ -106,7 +106,7 @@ offset_top = -24.0
 offset_right = 1192.0
 offset_bottom = 664.0
 mouse_filter = 2
-color = Color(0.33006677, 0.58881825, 0.6242948, 1)
+color = Color(0.59106034, 0.04962357, 0.30718625, 1)
 
 [node name="BigCrackedEggBack" type="Sprite2D" parent="MainMenu" unique_id=2141765581]
 position = Vector2(576, 343)
