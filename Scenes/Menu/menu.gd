@@ -2,6 +2,7 @@ extends Control
 
 @export var animation_player: AnimationPlayer
 @export var audio_controller: AudioController
+@export var scene_change_animations: AnimationPlayer
 
 @export_category("Sounds")
 @export var yolk_squish_sound : AudioStream
@@ -13,6 +14,8 @@ func _ready():
 	animation_player.play("yolk_idle_bobbing")
 
 func _on_play_pressed():
+	scene_change_animations.play("exit_scene")
+	await scene_change_animations.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	
 func _on_options_pressed():
@@ -20,6 +23,8 @@ func _on_options_pressed():
 	pass
 
 func _on_quit_pressed():
+	scene_change_animations.play("exit_scene")
+	await scene_change_animations.animation_finished
 	get_tree().quit()
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
