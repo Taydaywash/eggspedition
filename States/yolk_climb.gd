@@ -19,8 +19,11 @@ func process_physics(_delta):
 		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		player.velocity = input_direction.normalized() * climb_speed
 		player.move_and_slide()
+		if input_direction == Vector2.ZERO:
+				return state_machine.yolk_climb_idle
 	else: 
 		return state_machine.yolk_fall
+	
 
 	return
 

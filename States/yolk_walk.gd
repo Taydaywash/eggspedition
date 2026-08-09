@@ -18,5 +18,5 @@ func process_physics(delta) -> State:
 	if player.velocity.y >= 1:
 		return state_machine.yolk_fall
 	if player.is_on_climbable:
-			return state_machine.yolk_climb_idle
+		return state_machine.yolk_climb_idle
 	return

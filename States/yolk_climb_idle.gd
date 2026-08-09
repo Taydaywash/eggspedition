@@ -9,6 +9,9 @@ func process_input(event : InputEvent) -> State:
 	if event.is_action_pressed("move_up"):
 		if player.is_on_climbable:
 			return state_machine.yolk_climb
+	if event.is_action_pressed("recall"):
+		SignalController.emit_signal("recall_egg")
+		return state_machine.yolk_to_egg
 	return
 
 func process_physics(_delta) -> State:
