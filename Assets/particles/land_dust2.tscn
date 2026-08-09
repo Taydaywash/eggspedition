@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dguq6hfjljaj1"]
+
+[ext_resource type="Texture2D" uid="uid://ceuhsd1m2o3k3" path="res://Assets/particles/textures/dust.png" id="1_jvcrh"]
+[ext_resource type="Script" uid="uid://c7n5i0ok44m1j" path="res://Assets/particles/particle.gd" id="2_vl2qa"]
+
+[sub_resource type="Curve" id="Curve_jjonr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.123595595), -1.5165662, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hbwxy"]
+colors = PackedColorArray(0.8646751, 0.86467516, 0.8646751, 1, 1, 1, 1, 1)
+
+[node name="LandDust" type="CPUParticles2D" unique_id=2037012427]
+amount = 2
+texture = ExtResource("1_jvcrh")
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(0, -1)
+spread = 41.76
+gravity = Vector2(0, 420)
+initial_velocity_min = 166.17
+initial_velocity_max = 307.15
+angle_min = -928.5
+angle_max = -928.5
+scale_amount_min = 1.5
+scale_amount_max = 1.75
+scale_amount_curve = SubResource("Curve_jjonr")
+color = Color(0.86486584, 0.52260756, 0.61748195, 1)
+color_ramp = SubResource("Gradient_hbwxy")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+script = ExtResource("2_vl2qa")
+spawn_offset = Vector2(0, 75)
+metadata/_custom_type_script = "uid://c7n5i0ok44m1j"
