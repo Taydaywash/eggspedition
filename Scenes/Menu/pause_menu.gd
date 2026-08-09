@@ -1,4 +1,5 @@
 extends CanvasLayer
+@export var animation_player: AnimationPlayer
 
 func _ready():
 	visible = false
@@ -9,8 +10,9 @@ func _on_resume_pressed():
 	get_tree().paused = false
 
 func _on_main_menu_pressed():
-	visible = false
 	get_tree().paused = false
+	animation_player.play("fade_to_black")
+	await animation_player.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/Menu/menu.tscn")
 
 func _input(_event: InputEvent) -> void:

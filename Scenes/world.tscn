@@ -96,7 +96,8 @@ max_distance = 9999999.0
 panning_strength = 0.0
 parameters/looping = true
 
-[node name="PauseMenu" parent="." unique_id=137025361 instance=ExtResource("5_fo5ed")]
+[node name="PauseMenu" parent="." unique_id=137025361 node_paths=PackedStringArray("animation_player") instance=ExtResource("5_fo5ed")]
+animation_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1618492330]
 libraries/ = SubResource("AnimationLibrary_c5t2i")
