@@ -45,7 +45,7 @@ func process_physics(delta):
 		if fall_distance > distance_to_crack:
 			return state_machine.egg_to_yolk
 		if jump_input_buffer.time_left > 0:
-			return state_machine.full_egg_jump
+			return state_machine.full_egg_hop
 		if input_direction:
 			return state_machine.full_egg_walk
 		return state_machine.full_egg_idle

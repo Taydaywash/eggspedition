@@ -15,6 +15,8 @@ class_name Player
 @export var full_egg_hurtbox: Area2D
 @export var yolk_hurtbox: Area2D
 @export var egg_shell_detector: Area2D
+@export var audio_controller_reference : AudioController
+@export var particle_controller_reference : ParticleController
 
 var is_on_climbable: bool = false
 var fall_distance = 0

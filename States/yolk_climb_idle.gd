@@ -1,9 +1,9 @@
 extends State
 
 func activate():
+	super()
 	player.velocity.x = 0
 	player.velocity.y = 0
-	super()
 
 func process_input(event : InputEvent) -> State:
 	if event.is_action_pressed("move_up"):

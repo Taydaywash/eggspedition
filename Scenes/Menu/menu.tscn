@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bchlrb0ik824s" path="res://Scenes/Menu/menu.gd" id="1_cqskg"]
 [ext_resource type="Texture2D" uid="uid://cavxlcpoi1rxp" path="res://Assets/Title/big_cracked_egg_back.png" id="2_8inha"]
+[ext_resource type="AudioStream" uid="uid://gxektju6d2iu" path="res://Assets/audio/yolk_walking_2.wav" id="2_uwxxs"]
 [ext_resource type="Texture2D" uid="uid://dblixjyt73mg5" path="res://Assets/Title/big_yolk.png" id="3_n2mnh"]
 [ext_resource type="Texture2D" uid="uid://drbmhfnppx0ef" path="res://Assets/Title/big_cracked_egg.png" id="4_x5f3s"]
 [ext_resource type="Texture2D" uid="uid://3wgwwf1qv1hu" path="res://Assets/Title/title.png" id="5_uwxxs"]
 [ext_resource type="AudioStream" uid="uid://cs13nlaygkygs" path="res://Assets/audio/title.mp3" id="6_n2mnh"]
+[ext_resource type="PackedScene" uid="uid://cl6k4dxqhoewk" path="res://Assets/audio/audio_controller.tscn" id="7_x5f3s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vjpb"]
 radius = 256.0
@@ -83,7 +85,7 @@ _data = {
 &"yolk_idle_bobbing": SubResource("Animation_n2mnh")
 }
 
-[node name="Menu" type="Control" unique_id=113861313 node_paths=PackedStringArray("animation_player")]
+[node name="Menu" type="Control" unique_id=113861313 node_paths=PackedStringArray("animation_player", "audio_controller")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,6 +95,8 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_cqskg")
 animation_player = NodePath("AnimationPlayer")
+audio_controller = NodePath("AudioController")
+yolk_squish_sound = ExtResource("2_uwxxs")
 
 [node name="MainMenu" type="CanvasLayer" parent="." unique_id=1231254095]
 
@@ -166,6 +170,8 @@ libraries/ = SubResource("AnimationLibrary_x5f3s")
 stream = ExtResource("6_n2mnh")
 autoplay = true
 parameters/looping = true
+
+[node name="AudioController" parent="." unique_id=1158809057 instance=ExtResource("7_x5f3s")]
 
 [connection signal="input_event" from="MainMenu/BigYolk/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

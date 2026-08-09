@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dmjqwja75upko"]
+
+[ext_resource type="Texture2D" uid="uid://ceuhsd1m2o3k3" path="res://Assets/particles/textures/dust.png" id="1_rfcme"]
+[ext_resource type="Script" uid="uid://c7n5i0ok44m1j" path="res://Assets/particles/particle.gd" id="1_sqpms"]
+
+[sub_resource type="Curve" id="Curve_jjonr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.123595595), -1.5165662, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hbwxy"]
+colors = PackedColorArray(0.8646751, 0.86467516, 0.8646751, 1, 1, 1, 1, 1)
+
+[node name="JumpDust" type="CPUParticles2D" unique_id=2037012427]
+position = Vector2(1, 0)
+amount = 3
+texture = ExtResource("1_rfcme")
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(0, -1)
+spread = 16.81
+gravity = Vector2(0, 420)
+initial_velocity_min = 255.28
+initial_velocity_max = 435.86
+angle_min = -238.0
+angle_max = 444.0
+scale_amount_min = 2.15
+scale_amount_max = 2.5
+scale_amount_curve = SubResource("Curve_jjonr")
+color = Color(0.86486584, 0.52260756, 0.61748195, 1)
+color_ramp = SubResource("Gradient_hbwxy")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+script = ExtResource("1_sqpms")
+spawn_offset = Vector2(0, 75)
+metadata/_custom_type_script = "uid://c7n5i0ok44m1j"

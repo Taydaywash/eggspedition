@@ -41,8 +41,14 @@
 [ext_resource type="PackedScene" uid="uid://cf5ac2d8jbxew" path="res://Scenes/egg_shell.tscn" id="27_xixlo"]
 [ext_resource type="Script" uid="uid://mlg1r735sdq4" path="res://States/death.gd" id="29_y6y60"]
 [ext_resource type="Script" uid="uid://86kdyrdon6xa" path="res://States/yolk_climb_idle.gd" id="31_c43xd"]
+[ext_resource type="AudioStream" uid="uid://djnsqfbcb1pqi" path="res://Assets/audio/egg_jump.wav" id="32_v5fqo"]
 [ext_resource type="Script" uid="uid://dgdtefxv8v5w4" path="res://States/yolk_to_egg.gd" id="33_rxg2u"]
 [ext_resource type="Script" uid="uid://xvp6ijo7fwa1" path="res://States/yolk_ascending.gd" id="33_wosd6"]
+[ext_resource type="PackedScene" uid="uid://dmjqwja75upko" path="res://Assets/particles/jump_dust.tscn" id="36_yf17c"]
+[ext_resource type="AudioStream" uid="uid://b2wyhfvd8fik" path="res://Assets/audio/egg_crack.wav" id="38_teras"]
+[ext_resource type="AudioStream" uid="uid://gxektju6d2iu" path="res://Assets/audio/yolk_walking_2.wav" id="41_v5fqo"]
+[ext_resource type="AudioStream" uid="uid://v3ak8dru57wr" path="res://Assets/audio/egg_fly_through_air_2.wav" id="45_teras"]
+[ext_resource type="AudioStream" uid="uid://c6jormxn8gt5e" path="res://Assets/audio/egg_recall_slam.wav" id="46_8p516"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nn08x"]
 animations = [{
@@ -319,6 +325,10 @@ jump_velocity = 900
 jump_input_buffer_delay = 0.5
 jump_input_buffer = NodePath("../../JumpInputBuffer")
 animation_name = "full_egg_air_roll"
+enter_sound_sounds = Array[AudioStream]([ExtResource("32_v5fqo")])
+enter_sound_pitch_low = 0.9
+enter_sound_pitch_high = 0.95
+enter_particle_particle = ExtResource("36_yf17c")
 
 [node name="FullEggJumpFromYolk" type="Node" parent="StateMachine" unique_id=159132066 node_paths=PackedStringArray("jump_input_buffer")]
 script = ExtResource("24_bfbt0")
@@ -341,12 +351,19 @@ script = ExtResource("14_o3h8g")
 jump_velocity = 850
 move_speed = 500
 animation_name = "full_egg_air_roll_fall"
+enter_sound_sounds = Array[AudioStream]([ExtResource("32_v5fqo")])
+enter_sound_pitch_low = 1.3
+enter_sound_pitch_high = 1.4
+enter_particle_particle = ExtResource("36_yf17c")
 
 [node name="EggToYolk" type="Node" parent="StateMachine" unique_id=49657149 node_paths=PackedStringArray("jump_input_buffer")]
 script = ExtResource("26_avx33")
 bounce_multiplier = 2.0
 jump_input_buffer = NodePath("../../JumpInputBuffer")
 egg_shell_scene = ExtResource("27_xixlo")
+enter_sound_sounds = Array[AudioStream]([ExtResource("38_teras")])
+enter_sound_pitch_low = 1.3
+enter_sound_pitch_high = 1.4
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
 [node name="YolkIdle" type="Node" parent="StateMachine" unique_id=1826340498]
@@ -358,6 +375,10 @@ metadata/_custom_type_script = "uid://8no0e8ov66oa"
 script = ExtResource("9_miouo")
 move_speed = 500
 animation_name = "yolk_walk"
+while_in_state_sounds = Array[AudioStream]([ExtResource("41_v5fqo")])
+while_in_state_sound_low = 1.1
+while_in_state_sound_high = 1.15
+while_in_state_repeat_sound_after_seconds = 0.5
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
 [node name="YolkFall" type="Node" parent="StateMachine" unique_id=1872056286 node_paths=PackedStringArray("jump_input_buffer")]
@@ -379,6 +400,10 @@ script = ExtResource("12_arntx")
 climb_speed = 400
 climbing_detector = NodePath("../../ClimbingDetector")
 animation_name = "yolk_walk"
+while_in_state_sounds = Array[AudioStream]([ExtResource("41_v5fqo")])
+while_in_state_sound_low = 1.1
+while_in_state_sound_high = 1.2
+while_in_state_repeat_sound_after_seconds = 0.6
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
 [node name="YolkClimbIdle" type="Node" parent="StateMachine" unique_id=1268056607]
@@ -389,6 +414,12 @@ metadata/_custom_type_script = "uid://8no0e8ov66oa"
 [node name="YolkToEgg" type="Node" parent="StateMachine" unique_id=1096517291]
 script = ExtResource("33_rxg2u")
 animation_name = "yolk_idle"
+while_in_state_sounds = Array[AudioStream]([null, ExtResource("45_teras")])
+while_in_state_sound_low = 0.97
+while_in_state_sound_high = 1.03
+exit_sound_sounds = Array[AudioStream]([ExtResource("46_8p516")])
+exit_sound_pitch_low = 0.9
+exit_sound_pitch_high = 1.1
 metadata/_custom_type_script = "uid://8no0e8ov66oa"
 
 [node name="EggHurtbox" type="Area2D" parent="." unique_id=291355709]

@@ -1,11 +1,7 @@
 extends Node
 class_name StateMachine
 
-var state : State
-var player : Player
-var sprite : AnimatedSprite2D
 @export var starting_state : State
-
 @export var death : State
 @export var full_egg_idle : State
 @export var full_egg_walk : State
@@ -22,12 +18,21 @@ var sprite : AnimatedSprite2D
 @export var yolk_climb_idle: State
 @export var yolk_to_egg: State
 
+var state : State
+var player : Player
+var sprite : AnimatedSprite2D
+var audio_controller_reference : AudioController
+var particle_controller_reference : ParticleController
 
 func initialize_state_machine() -> void:
+	audio_controller_reference = player.audio_controller_reference
+	particle_controller_reference = player.particle_controller_reference
 	for child in get_children():
 		child.state_machine = self
 		child.player = player
 		child.sprite = sprite
+		child.audio_controller = audio_controller_reference
+		child.particle_controller = particle_controller_reference
 	change_state(starting_state)
 
 func change_state(new_state):

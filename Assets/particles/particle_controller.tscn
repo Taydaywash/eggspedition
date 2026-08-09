@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b5bmadkljg8yy"]
+
+[ext_resource type="Script" uid="uid://dqem7sj45yjg4" path="res://Assets/particles/particle_controller.gd" id="1_6luxo"]
+
+[node name="ParticleController" type="AudioListener2D" unique_id=771239117]
+script = ExtResource("1_6luxo")

@@ -1,6 +1,8 @@
 extends Node2D
 @export var animation_player: AnimationPlayer
 
+var audio_controller : AudioController
+
 func _ready() -> void:
 	animation_player.play("fade_to_clear")
 	#SignalController.connect("player_died",fade_to_black)

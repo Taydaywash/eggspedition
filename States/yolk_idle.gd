@@ -1,8 +1,8 @@
 extends State
 
 func activate():
-	player.velocity.x = 0
 	super()
+	player.velocity.x = 0
 
 func process_input(event : InputEvent) -> State:
 	if event.is_action_pressed("recall"):

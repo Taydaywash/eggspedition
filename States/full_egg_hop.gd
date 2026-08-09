@@ -4,8 +4,9 @@ extends State
 @export var move_speed : int
 
 func activate():
-	player.velocity.y = -jump_velocity
 	super()
+	print("full_egg_hop")
+	player.velocity.y = -jump_velocity
 
 func process_physics(delta):
 	var input_direction = Input.get_axis("move_left","move_right")

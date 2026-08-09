@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://wufh2vpndj48"]
+
+[ext_resource type="Texture2D" uid="uid://ceuhsd1m2o3k3" path="res://Assets/particles/textures/dust.png" id="1_13jrs"]
+[ext_resource type="Script" uid="uid://c7n5i0ok44m1j" path="res://Assets/particles/particle.gd" id="1_sg0um"]
+
+[node name="LandDust" type="CPUParticles2D" unique_id=1447834123]
+amount = 6
+texture = ExtResource("1_13jrs")
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(0.7, -1)
+spread = 7.72
+gravity = Vector2(0, 420)
+script = ExtResource("1_sg0um")
+spawn_offset = Vector2(0, 75)
+metadata/_custom_type_script = "uid://c7n5i0ok44m1j"
