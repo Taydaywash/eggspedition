@@ -82,7 +82,7 @@ script = ExtResource("1_5v1tr")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Player" parent="." unique_id=327763569 node_paths=PackedStringArray("audio_controller_reference", "particle_controller_reference") instance=ExtResource("1_a02cp")]
-position = Vector2(-1536, 320)
+position = Vector2(17664, -3008)
 audio_controller_reference = NodePath("../AudioController")
 particle_controller_reference = NodePath("../ParticleController")
 
@@ -115,7 +115,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_nl8pl")
 
 [node name="Room01" parent="." unique_id=385656405 instance=ExtResource("4_8j60k")]
 position = Vector2(384, -384)
-room_active = true
 
 [node name="Door" parent="Room01" unique_id=1604017987 instance=ExtResource("3_8j60k")]
 position = Vector2(2176, -64)
@@ -231,6 +230,7 @@ door_size = Vector2(100, 400)
 
 [node name="Room11" parent="." unique_id=1267326560 instance=ExtResource("18_axeuq")]
 position = Vector2(15936, -3456)
+room_active = true
 
 [node name="Door4" parent="Room11" unique_id=1423629119 instance=ExtResource("3_8j60k")]
 position = Vector2(-1600, 384)
