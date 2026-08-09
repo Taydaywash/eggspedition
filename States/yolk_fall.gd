@@ -34,3 +34,6 @@ func process_physics(delta):
 		return state_machine.yolk_idle
 	
 	return
+
+func deactivate():
+	super()
