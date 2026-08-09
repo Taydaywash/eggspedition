@@ -33,6 +33,6 @@ texture = ExtResource("4_u62ig")
 position = Vector2(-1216, -576)
 
 [node name="BackflipHint" type="Sprite2D" parent="." unique_id=607325661]
-position = Vector2(0, -384)
+position = Vector2(3.8146973e-06, -320)
+scale = Vector2(1.3275862, 1.2111111)
 texture = ExtResource("6_cc8fk")
-flip_h = true

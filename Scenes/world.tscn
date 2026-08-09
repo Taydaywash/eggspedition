@@ -15,8 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://eib0gmntvc4o" path="res://Scenes/Rooms/room07.tscn" id="13_e0ngr"]
 [ext_resource type="PackedScene" uid="uid://cl6k4dxqhoewk" path="res://Assets/audio/audio_controller.tscn" id="15_hgpy0"]
 [ext_resource type="PackedScene" uid="uid://b5bmadkljg8yy" path="res://Assets/particles/particle_controller.tscn" id="15_kn0ld"]
+[ext_resource type="PackedScene" uid="uid://txuidhekqak8" path="res://Scenes/Rooms/room07-pre.tscn" id="16_0pcbe"]
 [ext_resource type="PackedScene" uid="uid://4rb4f446wy41" path="res://Scenes/Rooms/room08.tscn" id="16_t2t4p"]
 [ext_resource type="PackedScene" uid="uid://bkdgkwikvxx1v" path="res://Scenes/Rooms/room09.tscn" id="17_0pcbe"]
+[ext_resource type="PackedScene" uid="uid://c501sgntfn1pd" path="res://Scenes/Rooms/room08-hallway.tscn" id="18_axeuq"]
 
 [sub_resource type="Animation" id="Animation_0fj1v"]
 length = 0.001
@@ -195,7 +197,7 @@ position = Vector2(832, -2560)
 door_size = Vector2(100, 400)
 
 [node name="Room07" parent="." unique_id=1215245988 instance=ExtResource("13_e0ngr")]
-position = Vector2(12608, -4352)
+position = Vector2(16576, -4352)
 
 [node name="Door4" parent="Room07" unique_id=791512375 instance=ExtResource("3_8j60k")]
 position = Vector2(-1472, 384)
@@ -205,8 +207,19 @@ door_size = Vector2(100, 400)
 position = Vector2(1408, 384)
 door_size = Vector2(100, 400)
 
+[node name="Room10" parent="." unique_id=934818256 instance=ExtResource("16_0pcbe")]
+position = Vector2(12608, -4352)
+
+[node name="Door4" parent="Room10" unique_id=911933258 instance=ExtResource("3_8j60k")]
+position = Vector2(-1472, 384)
+door_size = Vector2(100, 400)
+
+[node name="Door5" parent="Room10" unique_id=1753325367 instance=ExtResource("3_8j60k")]
+position = Vector2(2176, 384)
+door_size = Vector2(100, 400)
+
 [node name="Room08" parent="." unique_id=943633039 instance=ExtResource("16_t2t4p")]
-position = Vector2(15872, -3328)
+position = Vector2(19904, -3328)
 
 [node name="Door4" parent="Room08" unique_id=1652798391 instance=ExtResource("3_8j60k")]
 position = Vector2(-1600, 256)
@@ -214,6 +227,17 @@ door_size = Vector2(100, 400)
 
 [node name="Door5" parent="Room08" unique_id=1745101620 instance=ExtResource("3_8j60k")]
 position = Vector2(-1600, -640)
+door_size = Vector2(100, 400)
+
+[node name="Room11" parent="." unique_id=1267326560 instance=ExtResource("18_axeuq")]
+position = Vector2(15936, -3456)
+
+[node name="Door4" parent="Room11" unique_id=1423629119 instance=ExtResource("3_8j60k")]
+position = Vector2(-1600, 384)
+door_size = Vector2(100, 400)
+
+[node name="Door5" parent="Room11" unique_id=1159535375 instance=ExtResource("3_8j60k")]
+position = Vector2(1984, 384)
 door_size = Vector2(100, 400)
 
 [node name="Room09" parent="." unique_id=654115229 instance=ExtResource("17_0pcbe")]
