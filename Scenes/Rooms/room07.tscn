@@ -32,7 +32,7 @@ scale = Vector2(4.75, 4.75)
 texture = ExtResource("4_wcgmm")
 
 [node name="RespawnPoint" parent="." unique_id=1661387131 instance=ExtResource("5_wox8q")]
-position = Vector2(-64, 448)
+position = Vector2(-1344, 448)
 
 [node name="DoorButton" parent="." unique_id=329787129 node_paths=PackedStringArray("connected_doors") instance=ExtResource("6_oamti")]
 position = Vector2(896, -64)

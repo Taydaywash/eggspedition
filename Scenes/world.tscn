@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://4rb4f446wy41" path="res://Scenes/Rooms/room08.tscn" id="16_t2t4p"]
 [ext_resource type="PackedScene" uid="uid://bkdgkwikvxx1v" path="res://Scenes/Rooms/room09.tscn" id="17_0pcbe"]
 [ext_resource type="PackedScene" uid="uid://c501sgntfn1pd" path="res://Scenes/Rooms/room08-hallway.tscn" id="18_axeuq"]
+[ext_resource type="PackedScene" uid="uid://broi5ky78wglx" path="res://Scenes/Rooms/room10.tscn" id="20_1cojt"]
 
 [sub_resource type="Animation" id="Animation_0fj1v"]
 length = 0.001
@@ -82,7 +83,7 @@ script = ExtResource("1_5v1tr")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Player" parent="." unique_id=327763569 node_paths=PackedStringArray("audio_controller_reference", "particle_controller_reference") instance=ExtResource("1_a02cp")]
-position = Vector2(17664, -3008)
+position = Vector2(192, -2240)
 audio_controller_reference = NodePath("../AudioController")
 particle_controller_reference = NodePath("../ParticleController")
 
@@ -230,7 +231,6 @@ door_size = Vector2(100, 400)
 
 [node name="Room11" parent="." unique_id=1267326560 instance=ExtResource("18_axeuq")]
 position = Vector2(15936, -3456)
-room_active = true
 
 [node name="Door4" parent="Room11" unique_id=1423629119 instance=ExtResource("3_8j60k")]
 position = Vector2(-1600, 384)
@@ -242,8 +242,22 @@ door_size = Vector2(100, 400)
 
 [node name="Room09" parent="." unique_id=654115229 instance=ExtResource("17_0pcbe")]
 position = Vector2(-1536, -2816)
+room_active = true
 
 [node name="Door4" parent="Room09" unique_id=1919602954 instance=ExtResource("3_8j60k")]
 position = Vector2(1344, 960)
 door_size = Vector2(400, 100)
+jump_on_enter = true
+
+[node name="Room12" parent="." unique_id=1138093581 instance=ExtResource("20_1cojt")]
+position = Vector2(-6528, -2816)
+
+[node name="Door5" parent="Room12" unique_id=300751271 instance=ExtResource("3_8j60k")]
+position = Vector2(2432, -128)
+door_size = Vector2(100, 400)
+jump_on_enter = true
+
+[node name="Door4" parent="Room12" unique_id=511477775 instance=ExtResource("3_8j60k")]
+position = Vector2(2112, -128)
+door_size = Vector2(100, 400)
 jump_on_enter = true

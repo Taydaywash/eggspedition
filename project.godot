@@ -13,7 +13,10 @@ config_version=5
 config/name="Eggspedition"
 run/main_scene="uid://cw64gvd0gum6r"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/bg_color=Color(0.36519864, 0.10848709, 0.18019715, 1)
+boot_splash/image="uid://bls27kda1qhp1"
 config/icon="res://Assets/icon.svg"
+boot_splash/minimum_display_time=4000
 
 [autoload]
 

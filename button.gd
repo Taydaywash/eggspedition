@@ -29,5 +29,6 @@ func _on_body_entered(_body: Node2D) -> void:
 		button_pressed()
 
 func _on_body_exited(_body: Node2D) -> void:
+	await get_tree().create_timer(0.2).timeout
 	if not get_overlapping_areas() and not get_overlapping_bodies():
 		button_unpressed()

@@ -5,7 +5,6 @@ extends State
 
 func activate():
 	super()
-	print("full_egg_hop")
 	player.velocity.y = -jump_velocity
 
 func process_physics(delta):

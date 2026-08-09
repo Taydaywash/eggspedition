@@ -7,7 +7,6 @@ var can_exit_state = true
 
 func activate():
 	super()
-	print("rolling")
 	if abs(player.velocity.x) < move_speed:
 		player.velocity.x = 0
 	finishing_roll = false
