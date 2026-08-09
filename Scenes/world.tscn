@@ -110,6 +110,7 @@ offset_left = -64.0
 offset_top = -64.0
 offset_right = 1216.0
 offset_bottom = 704.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nl8pl")
 
 [node name="AudioController" parent="." unique_id=1158809057 instance=ExtResource("15_hgpy0")]
