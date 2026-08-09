@@ -14,22 +14,26 @@ func activate():
 
 func process_input(event : InputEvent) -> State:
 	if event.is_action_pressed("jump"):
-		if player.is_on_floor():
-			return state_machine.full_egg_hop
-	if (event.is_action_pressed("move_left") and player.velocity.x >= 0):
 		if (sprite.frame == 3 or sprite.frame == 4):
-			player.velocity.x = -jump_horizontal_velocity
+			player.velocity.x = sign(player.velocity.x) * jump_horizontal_velocity
 			return state_machine.full_egg_jump
-		else:
-			player.velocity.x = -move_speed
-			return state_machine.full_egg_walk
-	if (event.is_action_pressed("move_right") and player.velocity.x <= 0): 
-		if (sprite.frame == 3 or sprite.frame == 4):
-			player.velocity.x = jump_horizontal_velocity
-			return state_machine.full_egg_jump
-		else:
-			player.velocity.x = move_speed
-			return state_machine.full_egg_walk
+		return state_machine.full_egg_hop
+	#if (event.is_action_pressed("move_left") and player.velocity.x >= 0):
+		#if (sprite.frame == 3 or sprite.frame == 4):
+			#player.velocity.x = -jump_horizontal_velocity
+			#return state_machine.full_egg_jump
+		#else:
+			#player.velocity.x = -move_speed
+			#sprite.frame = 0
+			#return state_machine.full_egg_walk
+	#if (event.is_action_pressed("move_right") and player.velocity.x <= 0): 
+		#if (sprite.frame == 3 or sprite.frame == 4):
+			#player.velocity.x = jump_horizontal_velocity
+			#return state_machine.full_egg_jump
+		#else:
+			#player.velocity.x = move_speed
+			#sprite.frame = 0
+			#return state_machine.full_egg_walk
 	return
 
 func process_physics(delta):
