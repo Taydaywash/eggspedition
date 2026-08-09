@@ -45,7 +45,7 @@ func activate():
 	
 	if while_in_state_sounds:
 		loop_sound()
-	elif enter_sound_sounds:
+	if enter_sound_sounds:
 		audio_controller.play_sound(enter_sound_sounds.pick_random(), enter_sound_pitch_low, enter_sound_pitch_high)
 	if while_in_state_particle:
 		loop_particle()
