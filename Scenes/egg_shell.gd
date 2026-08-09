@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func delete():
 	position = Vector2.INF
-	await get_tree().process_frame
+	await get_tree().create_timer(0.1).timeout
 	call_deferred("queue_free")
 
 func _process(delta):
