@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b65c5p1mmfi87" path="res://Scenes/Player.tscn" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://b65vcgxdmpg5b" path="res://Scenes/Rooms/room02.tscn" id="2_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://fvwbjvsrk2eg" path="res://Scenes/Level Editor/door.tscn" id="3_8j60k"]
+[ext_resource type="AudioStream" uid="uid://7ui3g616ob80" path="res://Assets/audio/please eggsplain.ogg" id="3_no8kt"]
 [ext_resource type="PackedScene" uid="uid://ciukrafr6dngs" path="res://Scenes/Rooms/room01.tscn" id="4_8j60k"]
-[ext_resource type="AudioStream" uid="uid://djbf6djt23gxh" path="res://Assets/audio/please eggsplain.mp3" id="4_ikia7"]
 [ext_resource type="PackedScene" uid="uid://bw7nmsfctfqg6" path="res://Scenes/Menu/pause_menu.tscn" id="5_fo5ed"]
 [ext_resource type="PackedScene" uid="uid://t7msdsukki8u" path="res://Scenes/Rooms/room03.tscn" id="6_5ukr8"]
 [ext_resource type="PackedScene" uid="uid://cdtc1nwtdkdsd" path="res://Scenes/Rooms/room04.tscn" id="7_o06y3"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cs306113p6vix" path="res://Scenes/Rooms/room04_secret.tscn" id="9_0fj1v"]
 [ext_resource type="PackedScene" uid="uid://dqsikhqqoy2hj" path="res://Scenes/Rooms/room06.tscn" id="13_c5t2i"]
 [ext_resource type="PackedScene" uid="uid://eib0gmntvc4o" path="res://Scenes/Rooms/room07.tscn" id="13_e0ngr"]
+[ext_resource type="AudioStream" uid="uid://8wu828443vp2" path="res://Assets/audio/special_loop.ogg" id="13_yq1aw"]
 [ext_resource type="PackedScene" uid="uid://cl6k4dxqhoewk" path="res://Assets/audio/audio_controller.tscn" id="15_hgpy0"]
 [ext_resource type="PackedScene" uid="uid://b5bmadkljg8yy" path="res://Assets/particles/particle_controller.tscn" id="15_kn0ld"]
 [ext_resource type="PackedScene" uid="uid://txuidhekqak8" path="res://Scenes/Rooms/room07-pre.tscn" id="16_0pcbe"]
@@ -20,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bkdgkwikvxx1v" path="res://Scenes/Rooms/room09.tscn" id="17_0pcbe"]
 [ext_resource type="PackedScene" uid="uid://c501sgntfn1pd" path="res://Scenes/Rooms/room08-hallway.tscn" id="18_axeuq"]
 [ext_resource type="PackedScene" uid="uid://broi5ky78wglx" path="res://Scenes/Rooms/room10.tscn" id="20_1cojt"]
+[ext_resource type="AudioStream" uid="uid://bb28xbcta101d" path="res://Assets/audio/speical.ogg" id="22_pyn1s"]
 
 [sub_resource type="Animation" id="Animation_0fj1v"]
 length = 0.001
@@ -83,12 +85,12 @@ script = ExtResource("1_5v1tr")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Player" parent="." unique_id=327763569 node_paths=PackedStringArray("audio_controller_reference", "particle_controller_reference") instance=ExtResource("1_a02cp")]
-position = Vector2(192, -2240)
+position = Vector2(-1536, 320)
 audio_controller_reference = NodePath("../AudioController")
 particle_controller_reference = NodePath("../ParticleController")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" unique_id=1416714650]
-stream = ExtResource("4_ikia7")
+stream = ExtResource("3_no8kt")
 autoplay = true
 max_distance = 9999999.0
 panning_strength = 0.0
@@ -116,6 +118,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_nl8pl")
 
 [node name="Room01" parent="." unique_id=385656405 instance=ExtResource("4_8j60k")]
 position = Vector2(384, -384)
+room_active = true
 
 [node name="Door" parent="Room01" unique_id=1604017987 instance=ExtResource("3_8j60k")]
 position = Vector2(2176, -64)
@@ -154,9 +157,12 @@ position = Vector2(13248, -256)
 position = Vector2(-2112, -832)
 door_size = Vector2(100, 400)
 
-[node name="Door3" parent="Room04" unique_id=1922328519 instance=ExtResource("3_8j60k")]
+[node name="Door3" parent="Room04" unique_id=1922328519 node_paths=PackedStringArray("music_player") instance=ExtResource("3_8j60k")]
 position = Vector2(704, -1024)
 door_size = Vector2(100, 400)
+play_song_on_enter = true
+music_player = NodePath("../../Player/AudioStreamPlayer2D")
+music = ExtResource("3_no8kt")
 
 [node name="Door2" parent="Room04" unique_id=1709857556 instance=ExtResource("3_8j60k")]
 position = Vector2(-1216, -1728)
@@ -165,9 +171,12 @@ door_size = Vector2(400, 100)
 [node name="Room04_secret" parent="." unique_id=193901391 instance=ExtResource("9_0fj1v")]
 position = Vector2(16384, -512)
 
-[node name="Door" parent="Room04_secret" unique_id=1297551205 instance=ExtResource("3_8j60k")]
+[node name="Door" parent="Room04_secret" unique_id=1297551205 node_paths=PackedStringArray("music_player") instance=ExtResource("3_8j60k")]
 position = Vector2(-2112, -832)
 door_size = Vector2(100, 400)
+play_song_on_enter = true
+music_player = NodePath("../../Player/AudioStreamPlayer2D")
+music = ExtResource("13_yq1aw")
 
 [node name="Room05" parent="." unique_id=476939788 instance=ExtResource("8_k7acu")]
 position = Vector2(13248, -2048)
@@ -242,7 +251,6 @@ door_size = Vector2(100, 400)
 
 [node name="Room09" parent="." unique_id=654115229 instance=ExtResource("17_0pcbe")]
 position = Vector2(-1536, -2816)
-room_active = true
 
 [node name="Door4" parent="Room09" unique_id=1919602954 instance=ExtResource("3_8j60k")]
 position = Vector2(1344, 960)
@@ -252,12 +260,16 @@ jump_on_enter = true
 [node name="Room12" parent="." unique_id=1138093581 instance=ExtResource("20_1cojt")]
 position = Vector2(-6528, -2816)
 
-[node name="Door5" parent="Room12" unique_id=300751271 instance=ExtResource("3_8j60k")]
+[node name="Door5" parent="Room12" unique_id=300751271 node_paths=PackedStringArray("music_player") instance=ExtResource("3_8j60k")]
 position = Vector2(2432, -128)
 door_size = Vector2(100, 400)
-jump_on_enter = true
+play_song_on_enter = true
+music_player = NodePath("../../Player/AudioStreamPlayer2D")
+music = ExtResource("3_no8kt")
 
-[node name="Door4" parent="Room12" unique_id=511477775 instance=ExtResource("3_8j60k")]
+[node name="Door4" parent="Room12" unique_id=511477775 node_paths=PackedStringArray("music_player") instance=ExtResource("3_8j60k")]
 position = Vector2(2112, -128)
 door_size = Vector2(100, 400)
-jump_on_enter = true
+play_song_on_enter = true
+music_player = NodePath("../../Player/AudioStreamPlayer2D")
+music = ExtResource("22_pyn1s")
