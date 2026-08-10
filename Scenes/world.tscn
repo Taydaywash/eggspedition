@@ -11,9 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://cdtc1nwtdkdsd" path="res://Scenes/Rooms/room04.tscn" id="7_o06y3"]
 [ext_resource type="PackedScene" uid="uid://bgxtrtt0o731a" path="res://Scenes/Rooms/room05.tscn" id="8_k7acu"]
 [ext_resource type="PackedScene" uid="uid://cs306113p6vix" path="res://Scenes/Rooms/room04_secret.tscn" id="9_0fj1v"]
+[ext_resource type="Script" uid="uid://c366yi45jw628" path="res://Scenes/Level Editor/egg_man_door.gd" id="12_no8kt"]
 [ext_resource type="PackedScene" uid="uid://dqsikhqqoy2hj" path="res://Scenes/Rooms/room06.tscn" id="13_c5t2i"]
 [ext_resource type="PackedScene" uid="uid://eib0gmntvc4o" path="res://Scenes/Rooms/room07.tscn" id="13_e0ngr"]
-[ext_resource type="AudioStream" uid="uid://8wu828443vp2" path="res://Assets/audio/special_loop.ogg" id="13_yq1aw"]
+[ext_resource type="AudioStream" uid="uid://chfeyjevgkr2n" path="res://Assets/audio/banjo_man.ogg" id="13_i4fjy"]
 [ext_resource type="PackedScene" uid="uid://cl6k4dxqhoewk" path="res://Assets/audio/audio_controller.tscn" id="15_hgpy0"]
 [ext_resource type="PackedScene" uid="uid://b5bmadkljg8yy" path="res://Assets/particles/particle_controller.tscn" id="15_kn0ld"]
 [ext_resource type="PackedScene" uid="uid://txuidhekqak8" path="res://Scenes/Rooms/room07-pre.tscn" id="16_0pcbe"]
@@ -22,6 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://c501sgntfn1pd" path="res://Scenes/Rooms/room08-hallway.tscn" id="18_axeuq"]
 [ext_resource type="PackedScene" uid="uid://broi5ky78wglx" path="res://Scenes/Rooms/room10.tscn" id="20_1cojt"]
 [ext_resource type="AudioStream" uid="uid://bb28xbcta101d" path="res://Assets/audio/speical.ogg" id="22_pyn1s"]
+[ext_resource type="PackedScene" uid="uid://br52sosu4cxi4" path="res://Scenes/Rooms/room_man.tscn" id="23_no8kt"]
+[ext_resource type="Script" uid="uid://bsrdhkkdtu4km" path="res://Scenes/Level Editor/man_exit_door.gd" id="24_xbk3s"]
+[ext_resource type="Script" uid="uid://dq07b2v8rxsfu" path="res://Scenes/tree.gd" id="25_pt3ps"]
 
 [sub_resource type="Animation" id="Animation_0fj1v"]
 length = 0.001
@@ -159,8 +163,13 @@ position = Vector2(13248, -256)
 position = Vector2(-2112, -832)
 door_size = Vector2(100, 400)
 
-[node name="Door3" parent="Room04" unique_id=1922328519 node_paths=PackedStringArray("music_player") instance=ExtResource("3_8j60k")]
+[node name="Door3" parent="Room04" unique_id=1922328519 node_paths=PackedStringArray("player", "spawn_position", "room_man", "music_player") instance=ExtResource("3_8j60k")]
 position = Vector2(704, -1024)
+script = ExtResource("12_no8kt")
+player = NodePath("../../Player")
+spawn_position = NodePath("../../Room_man/SpawnPosition")
+room_man = NodePath("../../Room_man")
+man_theme = ExtResource("13_i4fjy")
 door_size = Vector2(100, 400)
 play_song_on_enter = true
 music_player = NodePath("../../Player/AudioStreamPlayer2D")
@@ -170,15 +179,17 @@ music = ExtResource("3_no8kt")
 position = Vector2(-1216, -1728)
 door_size = Vector2(400, 100)
 
+[node name="SpawnPos" type="Node2D" parent="Room04" unique_id=124837246]
+position = Vector2(384, -960)
+
 [node name="Room04_secret" parent="." unique_id=193901391 instance=ExtResource("9_0fj1v")]
 position = Vector2(16384, -512)
 
 [node name="Door" parent="Room04_secret" unique_id=1297551205 node_paths=PackedStringArray("music_player") instance=ExtResource("3_8j60k")]
 position = Vector2(-2112, -832)
 door_size = Vector2(100, 400)
-play_song_on_enter = true
 music_player = NodePath("../../Player/AudioStreamPlayer2D")
-music = ExtResource("13_yq1aw")
+music = ExtResource("3_no8kt")
 
 [node name="Room05" parent="." unique_id=476939788 instance=ExtResource("8_k7acu")]
 position = Vector2(13248, -2048)
@@ -275,3 +286,23 @@ door_size = Vector2(100, 400)
 play_song_on_enter = true
 music_player = NodePath("../../Player/AudioStreamPlayer2D")
 music = ExtResource("22_pyn1s")
+
+[node name="Room_man" parent="." unique_id=439464483 instance=ExtResource("23_no8kt")]
+position = Vector2(14592, 2240)
+
+[node name="tree" parent="Room_man" index="4" unique_id=261218245 node_paths=PackedStringArray("player")]
+script = ExtResource("25_pt3ps")
+player = NodePath("../../Player")
+
+[node name="Door" parent="Room_man" unique_id=935484491 node_paths=PackedStringArray("player", "spawn_pos", "room_04", "door_3", "music_player") instance=ExtResource("3_8j60k")]
+position = Vector2(576, 320)
+script = ExtResource("24_xbk3s")
+player = NodePath("../../Player")
+spawn_pos = NodePath("../../Room04/SpawnPos")
+room_04 = NodePath("../../Room04")
+door_3 = NodePath("../../Room04/Door3")
+door_size = Vector2(400, 100)
+music_player = NodePath("../../Player/AudioStreamPlayer2D")
+music = ExtResource("3_no8kt")
+
+[editable path="Room_man"]

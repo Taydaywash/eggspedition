@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://co6k3u1mxanqq"]
 
 [ext_resource type="Script" uid="uid://cuacf5relahcy" path="res://Scenes/Level Editor/respawn_point.gd" id="1_tci2x"]
+[ext_resource type="PackedScene" uid="uid://b5bmadkljg8yy" path="res://Assets/particles/particle_controller.tscn" id="2_4v41o"]
 [ext_resource type="Texture2D" uid="uid://bxweidhg17i6w" path="res://Assets/levelEditor/save point/pole.png" id="2_thmm2"]
 [ext_resource type="Texture2D" uid="uid://de5ltb7jal55t" path="res://Assets/levelEditor/save point/flag0000.png" id="3_4v41o"]
 [ext_resource type="Texture2D" uid="uid://dyy64honvw0jk" path="res://Assets/levelEditor/save point/flag0001.png" id="4_b28wf"]
@@ -40,6 +41,8 @@ collision_mask = 2
 script = ExtResource("1_tci2x")
 ray_cast = NodePath("RayCast2D")
 sprite = NodePath("sprite")
+
+[node name="ParticleController" parent="." unique_id=771239117 instance=ExtResource("2_4v41o")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1807040908]
 z_index = -1

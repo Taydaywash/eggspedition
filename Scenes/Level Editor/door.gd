@@ -18,10 +18,11 @@ func _ready() -> void:
 	room = get_parent()
 	
 func _on_body_entered(body: Node2D) -> void:
-	if play_song_on_enter:
-		if music_player.stream != music:
-			music_player.stream = music
-			music_player.playing = true
-	if jump_on_enter and get_parent().room_active == false:
-		body.velocity.y = -1000
-	SignalController.emit_signal("change_room",room)
+	if not room.room_active:
+		if play_song_on_enter:
+			if music_player.stream != music:
+				music_player.stream = music
+				music_player.playing = true
+		if jump_on_enter and get_parent().room_active == false:
+			body.velocity.y = -1000
+		SignalController.emit_signal("change_room",room)

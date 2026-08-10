@@ -20,6 +20,7 @@ class_name Player
 
 var is_on_climbable: bool = false
 var fall_distance = 0
+var can_recall : bool = true
 
 func _ready() -> void:
 	state_machine.player = self
