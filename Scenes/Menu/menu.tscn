@@ -4,16 +4,91 @@
 [ext_resource type="Texture2D" uid="uid://cavxlcpoi1rxp" path="res://Assets/Title/big_cracked_egg_back.png" id="2_8inha"]
 [ext_resource type="AudioStream" uid="uid://gxektju6d2iu" path="res://Assets/audio/yolk_walking_2.wav" id="2_uwxxs"]
 [ext_resource type="Texture2D" uid="uid://dblixjyt73mg5" path="res://Assets/Title/big_yolk.png" id="3_n2mnh"]
+[ext_resource type="AudioStream" uid="uid://6gvo70rw7nvn" path="res://Assets/audio/confirm.wav" id="3_qok0p"]
+[ext_resource type="AudioStream" uid="uid://dwc37y7owcjr5" path="res://Assets/audio/cancel.wav" id="4_hgg7c"]
 [ext_resource type="Texture2D" uid="uid://drbmhfnppx0ef" path="res://Assets/Title/big_cracked_egg.png" id="4_x5f3s"]
 [ext_resource type="Texture2D" uid="uid://3wgwwf1qv1hu" path="res://Assets/Title/title.png" id="5_uwxxs"]
 [ext_resource type="AudioStream" uid="uid://cs13nlaygkygs" path="res://Assets/audio/title.mp3" id="6_n2mnh"]
+[ext_resource type="FontFile" uid="uid://chhntdx0xugj1" path="res://Assets/Fonts/SuperBakery-3lXyp.ttf" id="7_i081d"]
 [ext_resource type="PackedScene" uid="uid://cl6k4dxqhoewk" path="res://Assets/audio/audio_controller.tscn" id="7_x5f3s"]
+[ext_resource type="PackedScene" uid="uid://8pomn0phce2j" path="res://Scenes/Menu/settings_menu.tscn" id="9_qwfkq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nl8pl"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vjpb"]
 radius = 256.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddly5"]
+bg_color = Color(0.21068397, 0.048746683, 0.093729354, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6csd"]
+bg_color = Color(0.30818623, 0.084342755, 0.14820108, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.93941486, 0.6076307, 0.67248404, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i081d"]
+bg_color = Color(0.22907114, 0.053723343, 0.10381199, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9663879, 0.7790425, 0.81039304, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgg7c"]
+bg_color = Color(0.22907114, 0.053723343, 0.10381199, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9663879, 0.7790425, 0.81039304, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fcxt"]
+bg_color = Color(0.22907114, 0.053723343, 0.10381199, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9663879, 0.7790425, 0.81039304, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2ioa"]
+bg_color = Color(0.22907114, 0.053723343, 0.10381199, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9663879, 0.7790425, 0.81039304, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="Animation" id="Animation_8inha"]
 length = 0.001
@@ -100,7 +175,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-16, -16)]
+"values": [Vector2(-2304, -16)]
 }
 
 [sub_resource type="Animation" id="Animation_i081d"]
@@ -142,7 +217,66 @@ _data = {
 &"load_scene": SubResource("Animation_m6csd")
 }
 
-[node name="Menu" type="Control" unique_id=113861313 node_paths=PackedStringArray("animation_player", "audio_controller", "scene_change_animations")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxa3f"]
+bg_color = Color(0.21068397, 0.048746683, 0.093729354, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0401g"]
+bg_color = Color(0.30818623, 0.084342755, 0.14820108, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.93941486, 0.6076307, 0.67248404, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnqkc"]
+bg_color = Color(0.22907114, 0.053723343, 0.10381199, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9663879, 0.7790425, 0.81039304, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wv7rd"]
+bg_color = Color(0.22907114, 0.053723343, 0.10381199, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9663879, 0.7790425, 0.81039304, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qok0p"]
+bg_color = Color(0.5538821, 0.1887156, 0.28875726, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="Menu" type="Control" unique_id=113861313 node_paths=PackedStringArray("animation_player", "audio_controller", "scene_change_animations", "settings_screen", "credits_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -154,27 +288,34 @@ script = ExtResource("1_cqskg")
 animation_player = NodePath("AnimationPlayer")
 audio_controller = NodePath("AudioController")
 scene_change_animations = NodePath("SceneChangeAnimations")
+settings_screen = NodePath("SettingsMenu")
+credits_menu = NodePath("CreditsMenu")
 yolk_squish_sound = ExtResource("2_uwxxs")
+confirm_sound = ExtResource("3_qok0p")
+cancel_sound = ExtResource("4_hgg7c")
 
-[node name="MainMenu" type="CanvasLayer" parent="." unique_id=1231254095]
+[node name="MainMenu" type="Panel" parent="." unique_id=2138736412]
+layout_mode = 0
 
 [node name="Panel" type="Panel" parent="MainMenu" unique_id=1224018465]
 z_index = 4
 z_as_relative = false
-offset_left = -16.0
+layout_mode = 0
+offset_left = -2304.0
 offset_top = -16.0
-offset_right = 1168.0
+offset_right = -1120.0
 offset_bottom = 672.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nl8pl")
 
 [node name="ColorRect" type="ColorRect" parent="MainMenu" unique_id=1434169189]
+layout_mode = 0
 offset_left = -48.0
 offset_top = -24.0
 offset_right = 1192.0
 offset_bottom = 664.0
 mouse_filter = 2
-color = Color(0.59106034, 0.04962357, 0.30718625, 1)
+color = Color(0.3647059, 0.10980392, 0.18039216, 1)
 
 [node name="BigCrackedEggBack" type="Sprite2D" parent="MainMenu" unique_id=2141765581]
 position = Vector2(576, 343)
@@ -200,15 +341,16 @@ position = Vector2(576, 344)
 texture = ExtResource("5_uwxxs")
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu" unique_id=545846994]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -432.0
-offset_top = -28.0
-offset_right = -88.0
-offset_bottom = 241.0
+offset_left = 736.0
+offset_top = 288.0
+offset_right = 1080.0
+offset_bottom = 557.0
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -218,25 +360,42 @@ theme_override_constants/separation = 40
 
 [node name="Play" type="Button" parent="MainMenu/MarginContainer/VBoxContainer" unique_id=1635439364]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_i081d")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ddly5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6csd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i081d")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hgg7c")
 text = "Play"
 
-[node name="Options" type="Button" parent="MainMenu/MarginContainer/VBoxContainer" unique_id=261324166]
+[node name="Options" type="Button" parent="MainMenu/MarginContainer/VBoxContainer" unique_id=843903472]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_i081d")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ddly5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6csd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i081d")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3fcxt")
 text = "Options"
 
-[node name="Quit" type="Button" parent="MainMenu/MarginContainer/VBoxContainer" unique_id=1731938012]
+[node name="Credits" type="Button" parent="MainMenu/MarginContainer/VBoxContainer" unique_id=1834106526]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_i081d")
 theme_override_font_sizes/font_size = 40
-text = "Quit"
+theme_override_styles/normal = SubResource("StyleBoxFlat_ddly5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m6csd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i081d")
+theme_override_styles/focus = SubResource("StyleBoxFlat_u2ioa")
+text = "Credits"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2084182985]
 libraries/ = SubResource("AnimationLibrary_x5f3s")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=213853596]
+position = Vector2(64, 0)
 stream = ExtResource("6_n2mnh")
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [node name="AudioController" parent="." unique_id=1158809057 instance=ExtResource("7_x5f3s")]
@@ -245,7 +404,83 @@ parameters/looping = true
 libraries/ = SubResource("AnimationLibrary_qok0p")
 autoplay = &"load_scene"
 
+[node name="SettingsMenu" parent="." unique_id=1275955161 instance=ExtResource("9_qwfkq")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -196.0
+offset_right = -256.0
+offset_bottom = -196.0
+grow_horizontal = 2
+grow_vertical = 2
+confirm_sound = null
+cancel_sound = null
+
+[node name="SettingsBack" type="Button" parent="SettingsMenu" unique_id=1032392404]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 312.0
+offset_right = 480.0
+offset_bottom = 356.0
+theme_override_fonts/font = ExtResource("7_i081d")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_wxa3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0401g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lnqkc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wv7rd")
+text = "Back"
+
+[node name="CreditsMenu" type="Panel" parent="." unique_id=961479961]
+visible = false
+layout_mode = 0
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 832.0
+offset_bottom = 512.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qok0p")
+
+[node name="CreditsLabel" type="Label" parent="CreditsMenu" unique_id=669645963]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -51.0
+offset_right = 149.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_i081d")
+theme_override_font_sizes/font_size = 26
+text = "Creator: TayDayWash
+
+Assistant: TheMelonHead"
+horizontal_alignment = 1
+
+[node name="CreditsBack" type="Button" parent="CreditsMenu" unique_id=492749790]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 312.0
+offset_right = 480.0
+offset_bottom = 356.0
+theme_override_fonts/font = ExtResource("7_i081d")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_wxa3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0401g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lnqkc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wv7rd")
+text = "Back"
+
 [connection signal="input_event" from="MainMenu/BigYolk/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="SettingsMenu/SettingsBack" to="." method="_on_settings_back_pressed"]
+[connection signal="pressed" from="CreditsMenu/CreditsBack" to="." method="_on_credits_back_pressed"]

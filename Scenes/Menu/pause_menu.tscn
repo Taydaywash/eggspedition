@@ -1,10 +1,66 @@
 [gd_scene format=3 uid="uid://bw7nmsfctfqg6"]
 
 [ext_resource type="Script" uid="uid://d0p6i0wyulvo2" path="res://Scenes/Menu/pause_menu.gd" id="1_i0al5"]
+[ext_resource type="AudioStream" uid="uid://6gvo70rw7nvn" path="res://Assets/audio/confirm.wav" id="2_3hoqq"]
+[ext_resource type="PackedScene" uid="uid://8pomn0phce2j" path="res://Scenes/Menu/settings_menu.tscn" id="2_jnmi5"]
+[ext_resource type="AudioStream" uid="uid://dwc37y7owcjr5" path="res://Assets/audio/cancel.wav" id="3_dehqv"]
+[ext_resource type="FontFile" uid="uid://chhntdx0xugj1" path="res://Assets/Fonts/SuperBakery-3lXyp.ttf" id="3_mux1j"]
+[ext_resource type="Script" uid="uid://73kv0bqdme6m" path="res://Assets/audio/audio_controller.gd" id="4_mux1j"]
 
-[node name="PauseMenu" type="CanvasLayer" unique_id=137025361]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mux1j"]
+bg_color = Color(0.21068397, 0.048746683, 0.093729354, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0km3y"]
+bg_color = Color(0.30818623, 0.084342755, 0.14820108, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.93941486, 0.6076307, 0.67248404, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hoqq"]
+bg_color = Color(0.22907114, 0.053723343, 0.10381199, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9663879, 0.7790425, 0.81039304, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dehqv"]
+bg_color = Color(0.22907114, 0.053723343, 0.10381199, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9663879, 0.7790425, 0.81039304, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=137025361 node_paths=PackedStringArray("settings_screen", "audio_controller")]
 process_mode = 3
 script = ExtResource("1_i0al5")
+settings_screen = NodePath("SettingsMenu")
+audio_controller = NodePath("AudioController")
+confirm_sound = ExtResource("2_3hoqq")
+cancel_sound = ExtResource("3_dehqv")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=860844583]
 offset_right = 1152.0
@@ -32,9 +88,43 @@ theme_override_constants/separation = 20
 layout_mode = 2
 text = "Resume"
 
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1323975516]
+layout_mode = 2
+text = "Options"
+
 [node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer" unique_id=497341470]
 layout_mode = 2
 text = "Main Menu"
 
+[node name="SettingsMenu" parent="." unique_id=1275955161 instance=ExtResource("2_jnmi5")]
+visible = false
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 320.0
+offset_bottom = 128.0
+confirm_sound = null
+cancel_sound = null
+
+[node name="SettingsBack" type="Button" parent="SettingsMenu" unique_id=647939942]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 312.0
+offset_right = 480.0
+offset_bottom = 356.0
+theme_override_fonts/font = ExtResource("3_mux1j")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_mux1j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0km3y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3hoqq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dehqv")
+text = "Back"
+
+[node name="AudioController" type="AudioListener2D" parent="." unique_id=1114506767]
+process_mode = 3
+script = ExtResource("4_mux1j")
+metadata/_custom_type_script = "uid://73kv0bqdme6m"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="SettingsMenu/SettingsBack" to="." method="_on_settings_back_pressed"]

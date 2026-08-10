@@ -3,9 +3,13 @@ extends Control
 @export var animation_player: AnimationPlayer
 @export var audio_controller: AudioController
 @export var scene_change_animations: AnimationPlayer
+@export var settings_screen: Panel
+@export var credits_menu: Panel
 
 @export_category("Sounds")
 @export var yolk_squish_sound : AudioStream
+@export var confirm_sound: AudioStream
+@export var cancel_sound: AudioStream
 
 var play_squish : bool = true
 
@@ -14,18 +18,18 @@ func _ready():
 	animation_player.play("yolk_idle_bobbing")
 
 func _on_play_pressed():
+	audio_controller.play_sound(confirm_sound)
 	scene_change_animations.play("exit_scene")
 	await scene_change_animations.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	
 func _on_options_pressed():
-	#get_tree().change_scene_to_file()
-	pass
-
-func _on_quit_pressed():
-	scene_change_animations.play("exit_scene")
-	await scene_change_animations.animation_finished
-	get_tree().quit()
+	audio_controller.play_sound(confirm_sound)
+	settings_screen.visible = true
+	
+func _on_settings_back_pressed():
+	audio_controller.play_sound(cancel_sound)
+	settings_screen.visible = false
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
@@ -38,3 +42,11 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 				await animation_player.animation_finished
 				play_squish = true
 				animation_player.play("yolk_idle_bobbing")
+
+func _on_credits_pressed():
+	audio_controller.play_sound(confirm_sound)
+	credits_menu.visible = true
+
+func _on_credits_back_pressed():
+	audio_controller.play_sound(cancel_sound)
+	credits_menu.visible = false

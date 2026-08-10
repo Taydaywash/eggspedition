@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://8pomn0phce2j"]
+
+[ext_resource type="Script" uid="uid://ufbcengfjyox" path="res://Scenes/Menu/settings_menu.gd" id="1_051s4"]
+[ext_resource type="AudioStream" uid="uid://6gvo70rw7nvn" path="res://Assets/audio/confirm.wav" id="2_1sono"]
+[ext_resource type="Script" uid="uid://73kv0bqdme6m" path="res://Assets/audio/audio_controller.gd" id="2_poyrj"]
+[ext_resource type="FontFile" uid="uid://chhntdx0xugj1" path="res://Assets/Fonts/SuperBakery-3lXyp.ttf" id="3_poyrj"]
+[ext_resource type="AudioStream" uid="uid://dwc37y7owcjr5" path="res://Assets/audio/cancel.wav" id="3_w6piq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_051s4"]
+bg_color = Color(0.5538821, 0.1887156, 0.28875726, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3akj"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1sono"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6piq"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="SettingsMenu" type="Panel" unique_id=1275955161 node_paths=PackedStringArray("audio_controller", "master_scroll", "sfx_scroll", "music_scroll")]
+offset_left = 71.0
+offset_top = 27.0
+offset_right = 71.0
+offset_bottom = 27.0
+script = ExtResource("1_051s4")
+audio_controller = NodePath("AudioController")
+master_scroll = NodePath("MasterScroll")
+sfx_scroll = NodePath("SFXScroll")
+music_scroll = NodePath("MusicScroll")
+confirm_sound = ExtResource("2_1sono")
+cancel_sound = ExtResource("3_w6piq")
+
+[node name="Panel" type="Panel" parent="." unique_id=315241903]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 384.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_051s4")
+
+[node name="AudioController" type="AudioListener2D" parent="." unique_id=879767597]
+process_mode = 3
+script = ExtResource("2_poyrj")
+metadata/_custom_type_script = "uid://73kv0bqdme6m"
+
+[node name="MasterScroll" type="VScrollBar" parent="." unique_id=761621706]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 277.0
+offset_right = 201.0
+offset_bottom = 477.0
+rotation = 3.1415927
+theme_override_styles/grabber = SubResource("StyleBoxFlat_a3akj")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxFlat_1sono")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxFlat_w6piq")
+step = 5.0
+value = 100.0
+
+[node name="MasterLabel" type="Label" parent="." unique_id=97857190]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 0
+offset_left = 41.0
+offset_top = 285.0
+offset_right = 121.0
+offset_bottom = 310.0
+theme_override_fonts/font = ExtResource("3_poyrj")
+theme_override_font_sizes/font_size = 20
+text = "Master"
+horizontal_alignment = 1
+
+[node name="MusicScroll" type="VScrollBar" parent="." unique_id=686111959]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 277.0
+offset_right = 329.0
+offset_bottom = 477.0
+rotation = 3.1415927
+theme_override_styles/grabber = SubResource("StyleBoxFlat_a3akj")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxFlat_1sono")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxFlat_w6piq")
+step = 5.0
+value = 100.0
+
+[node name="MusicLabel" type="Label" parent="." unique_id=513021570]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 0
+offset_left = 169.0
+offset_top = 285.0
+offset_right = 249.0
+offset_bottom = 310.0
+theme_override_fonts/font = ExtResource("3_poyrj")
+theme_override_font_sizes/font_size = 20
+text = "Music"
+horizontal_alignment = 1
+
+[node name="SFXScroll" type="VScrollBar" parent="." unique_id=140968208]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 277.0
+offset_right = 457.0
+offset_bottom = 477.0
+rotation = 3.1415927
+theme_override_styles/grabber = SubResource("StyleBoxFlat_a3akj")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxFlat_1sono")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxFlat_w6piq")
+step = 5.0
+value = 100.0
+
+[node name="SFXLabel" type="Label" parent="." unique_id=1549408811]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 0
+offset_left = 297.0
+offset_top = 285.0
+offset_right = 377.0
+offset_bottom = 310.0
+theme_override_fonts/font = ExtResource("3_poyrj")
+theme_override_font_sizes/font_size = 20
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="SettingsLabel" type="Label" parent="." unique_id=1583086020]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 21.0
+offset_right = 139.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("3_poyrj")
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[connection signal="value_changed" from="MasterScroll" to="." method="_on_master_scroll_value_changed"]
+[connection signal="value_changed" from="MusicScroll" to="." method="_on_music_scroll_value_changed"]
+[connection signal="value_changed" from="SFXScroll" to="." method="_on_sfx_scroll_value_changed"]

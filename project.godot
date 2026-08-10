@@ -22,6 +22,7 @@ boot_splash/minimum_display_time=4000
 
 SignalController="*uid://dtklip67g01ua"
 Global="*uid://ctx0u6abwj6s"
+SaveLoad="*uid://db1w32q0nhrho"
 
 [display]
 
