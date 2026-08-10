@@ -49,13 +49,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="SettingsMenu" type="Panel" unique_id=1275955161 node_paths=PackedStringArray("audio_controller", "master_scroll", "sfx_scroll", "music_scroll")]
+[node name="SettingsMenu" type="Panel" unique_id=1275955161 node_paths=PackedStringArray("master_scroll", "sfx_scroll", "music_scroll")]
+process_mode = 3
 offset_left = 71.0
 offset_top = 27.0
 offset_right = 71.0
 offset_bottom = 27.0
 script = ExtResource("1_051s4")
-audio_controller = NodePath("AudioController")
 master_scroll = NodePath("MasterScroll")
 sfx_scroll = NodePath("SFXScroll")
 music_scroll = NodePath("MusicScroll")
@@ -69,7 +69,6 @@ offset_bottom = 384.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_051s4")
 
 [node name="AudioController" type="AudioListener2D" parent="." unique_id=879767597]
-process_mode = 3
 script = ExtResource("2_poyrj")
 metadata/_custom_type_script = "uid://73kv0bqdme6m"
 

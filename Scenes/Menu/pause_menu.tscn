@@ -96,12 +96,13 @@ text = "Options"
 layout_mode = 2
 text = "Main Menu"
 
-[node name="SettingsMenu" parent="." unique_id=1275955161 instance=ExtResource("2_jnmi5")]
+[node name="SettingsMenu" parent="." unique_id=1275955161 node_paths=PackedStringArray("audio_controller") instance=ExtResource("2_jnmi5")]
 visible = false
 offset_left = 320.0
 offset_top = 128.0
 offset_right = 320.0
 offset_bottom = 128.0
+audio_controller = NodePath("../AudioController")
 confirm_sound = null
 cancel_sound = null
 

@@ -16,7 +16,6 @@ var options : Dictionary = {
 }
 
 func _ready() -> void:
-	print(AudioServer.bus_count)
 	options = SaveLoad.load_options()
 	AudioServer.set_bus_volume_linear(0,options.master_volume)
 	AudioServer.set_bus_volume_linear(1,options.music_volume)
@@ -43,16 +42,16 @@ func format_options():
 	return formatted_options
 
 func _on_master_scroll_value_changed(value):
-	print("change master", value)
+	audio_controller.play_sound(confirm_sound, 0.95, 1.05)
 	AudioServer.set_bus_volume_linear(0,value/100.00)
 	SaveLoad.save_options(format_options())
 
 func _on_music_scroll_value_changed(value):
-	print("change music", value)
+	audio_controller.play_sound(confirm_sound, 0.95, 1.05)
 	AudioServer.set_bus_volume_linear(1,value/100.00)
 	SaveLoad.save_options(format_options())
 
 func _on_sfx_scroll_value_changed(value):
-	print("change sfx", value)
+	audio_controller.play_sound(confirm_sound, 0.95, 1.05)
 	AudioServer.set_bus_volume_linear(2,value/100.00)
 	SaveLoad.save_options(format_options())

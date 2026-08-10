@@ -404,7 +404,7 @@ parameters/looping = true
 libraries/ = SubResource("AnimationLibrary_qok0p")
 autoplay = &"load_scene"
 
-[node name="SettingsMenu" parent="." unique_id=1275955161 instance=ExtResource("9_qwfkq")]
+[node name="SettingsMenu" parent="." unique_id=1275955161 node_paths=PackedStringArray("audio_controller") instance=ExtResource("9_qwfkq")]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -418,6 +418,7 @@ offset_right = -256.0
 offset_bottom = -196.0
 grow_horizontal = 2
 grow_vertical = 2
+audio_controller = NodePath("../AudioController")
 confirm_sound = null
 cancel_sound = null
 
