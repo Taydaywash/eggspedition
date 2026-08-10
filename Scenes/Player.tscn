@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://dmjqwja75upko" path="res://Assets/particles/jump_dust.tscn" id="36_yf17c"]
 [ext_resource type="AudioStream" uid="uid://d32rm2w7tjbuu" path="res://Assets/audio/egg_land.wav" id="37_3rw25"]
 [ext_resource type="AudioStream" uid="uid://b2wyhfvd8fik" path="res://Assets/audio/egg_crack.wav" id="38_teras"]
+[ext_resource type="PackedScene" uid="uid://dguq6hfjljaj1" path="res://Assets/particles/land_dust2.tscn" id="40_vp15a"]
 [ext_resource type="AudioStream" uid="uid://gxektju6d2iu" path="res://Assets/audio/yolk_walking_2.wav" id="41_v5fqo"]
 [ext_resource type="AudioStream" uid="uid://mavjulas8l11" path="res://Assets/audio/yolk_land.wav" id="45_o2sks"]
 [ext_resource type="AudioStream" uid="uid://v3ak8dru57wr" path="res://Assets/audio/egg_fly_through_air_2.wav" id="45_teras"]
@@ -366,6 +367,7 @@ animation_name = "full_egg_air_roll_fall"
 exit_sound_sounds = Array[AudioStream]([ExtResource("37_3rw25")])
 exit_sound_pitch_low = 0.8
 exit_sound_pitch_high = 1.2
+exit_particle_particle = ExtResource("40_vp15a")
 
 [node name="FullEggHop" type="Node" parent="StateMachine" unique_id=316554779]
 script = ExtResource("14_o3h8g")
