@@ -54,6 +54,18 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d37mi"]
+bg_color = Color(0.5538821, 0.1887156, 0.28875726, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
 [node name="PauseMenu" type="CanvasLayer" unique_id=137025361 node_paths=PackedStringArray("settings_screen", "audio_controller")]
 process_mode = 3
 script = ExtResource("1_i0al5")
@@ -124,6 +136,61 @@ text = "Back"
 process_mode = 3
 script = ExtResource("4_mux1j")
 metadata/_custom_type_script = "uid://73kv0bqdme6m"
+
+[node name="Panel" type="Panel" parent="." unique_id=1018504427]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -100.0
+offset_right = 128.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d37mi")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1946212632]
+custom_minimum_size = Vector2(224, 0)
+layout_mode = 0
+offset_left = 15.0
+offset_top = 19.0
+offset_right = 239.0
+offset_bottom = 380.0
+theme_override_fonts/font = ExtResource("3_mux1j")
+theme_override_font_sizes/font_size = 14
+text = "Are you sure you want to exit to main menu. Progress will be lost."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SettingsBack" type="Button" parent="Panel" unique_id=1641798112]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 104.0
+offset_bottom = 140.0
+theme_override_fonts/font = ExtResource("3_mux1j")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_mux1j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0km3y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3hoqq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dehqv")
+text = "Back"
+
+[node name="SettingsBack2" type="Button" parent="Panel" unique_id=19223984]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 96.0
+offset_right = 232.0
+offset_bottom = 140.0
+theme_override_fonts/font = ExtResource("3_mux1j")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_mux1j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0km3y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3hoqq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dehqv")
+text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
