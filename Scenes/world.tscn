@@ -272,15 +272,15 @@ position = Vector2(1344, 960)
 door_size = Vector2(400, 100)
 jump_on_enter = true
 
-[node name="Room12" parent="." unique_id=1138093581 instance=ExtResource("20_1cojt")]
-position = Vector2(-6528, -2816)
-
-[node name="Door5" parent="Room12" unique_id=300751271 node_paths=PackedStringArray("music_player") instance=ExtResource("3_8j60k")]
-position = Vector2(2432, -128)
+[node name="Door5" parent="Room09" unique_id=300751271 node_paths=PackedStringArray("music_player") instance=ExtResource("3_8j60k")]
+position = Vector2(-2560, -128)
 door_size = Vector2(100, 400)
 play_song_on_enter = true
 music_player = NodePath("../../Player/AudioStreamPlayer2D")
 music = ExtResource("3_no8kt")
+
+[node name="Room12" parent="." unique_id=1138093581 instance=ExtResource("20_1cojt")]
+position = Vector2(-6528, -2816)
 
 [node name="Door4" parent="Room12" unique_id=511477775 node_paths=PackedStringArray("music_player") instance=ExtResource("3_8j60k")]
 position = Vector2(2112, -128)
