@@ -18,6 +18,8 @@ func _ready():
 	animation_player.play("yolk_idle_bobbing")
 
 func _on_play_pressed():
+	if scene_change_animations.is_playing():
+		return
 	audio_controller.play_sound(confirm_sound, 0.95, 1.05)
 	scene_change_animations.play("exit_scene")
 	await scene_change_animations.animation_finished

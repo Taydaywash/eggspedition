@@ -37,9 +37,13 @@ func _on_settings_back_pressed():
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if get_tree().paused:
+			if settings_screen.visible:
+				settings_screen.visible = false
+				return
+			if confirmation_panel.visible:
+				confirmation_panel.visible = false
+				return
 			visible = false
-			settings_screen.visible = false
-			confirmation_panel.visible = false
 			get_tree().paused = false
 		else:
 			visible = true

@@ -406,6 +406,7 @@ autoplay = &"load_scene"
 
 [node name="SettingsMenu" parent="." unique_id=1275955161 node_paths=PackedStringArray("audio_controller") instance=ExtResource("9_qwfkq")]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -421,6 +422,14 @@ grow_vertical = 2
 audio_controller = NodePath("../AudioController")
 confirm_sound = null
 cancel_sound = null
+
+[node name="Panel2" type="Panel" parent="SettingsMenu" unique_id=1885228666]
+z_index = -1
+layout_mode = 0
+offset_left = -320.0
+offset_top = -144.0
+offset_right = 896.0
+offset_bottom = 528.0
 
 [node name="SettingsBack" type="Button" parent="SettingsMenu" unique_id=1032392404]
 layout_mode = 0
@@ -438,12 +447,87 @@ text = "Back"
 
 [node name="CreditsMenu" type="Panel" parent="." unique_id=961479961]
 visible = false
+z_index = 1
 layout_mode = 0
-offset_left = 320.0
+offset_left = 288.0
 offset_top = 128.0
-offset_right = 832.0
+offset_right = 864.0
 offset_bottom = 512.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qok0p")
+
+[node name="Panel" type="Panel" parent="CreditsMenu" unique_id=532935951]
+z_index = -1
+layout_mode = 0
+offset_left = -320.0
+offset_top = -144.0
+offset_right = 896.0
+offset_bottom = 528.0
+
+[node name="Taydaywash" type="Label" parent="CreditsMenu" unique_id=277363027]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -128.0
+offset_right = 240.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9490196, 0.41568628, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("7_i081d")
+theme_override_font_sizes/font_size = 38
+text = "TayDayWash"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Themelonhead" type="Label" parent="CreditsMenu" unique_id=725938245]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -16.0
+offset_right = 240.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9490196, 0.41568628, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("7_i081d")
+theme_override_font_sizes/font_size = 38
+text = "TheMelonHead"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Brose" type="Label" parent="CreditsMenu" unique_id=554813975]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 80.0
+offset_right = 240.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9490196, 0.41568628, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("7_i081d")
+theme_override_font_sizes/font_size = 38
+text = "BroseB4hos"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="CreditsLabel" type="Label" parent="CreditsMenu" unique_id=669645963]
 layout_mode = 1
@@ -452,18 +536,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -149.0
-offset_top = -51.0
-offset_right = 149.0
-offset_bottom = 51.0
+offset_left = -272.0
+offset_top = -160.0
+offset_right = 272.0
+offset_bottom = 117.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_i081d")
 theme_override_font_sizes/font_size = 26
-text = "Creator: TayDayWash
+text = "Team Lead, Art, Coding, Music, Game Design: 
 
-Assistant: TheMelonHead"
+
+Additional Coding, Sound Effects, UI, Polish: 
+
+
+Brainstorming & Playtesting:
+"
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="CreditsBack" type="Button" parent="CreditsMenu" unique_id=492749790]
 layout_mode = 0
