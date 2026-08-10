@@ -9,7 +9,7 @@ func _ready() -> void:
 	SignalController.connect("update_respawn_point",func(respawn_point):
 		if respawn_point == self:
 			Global.respawn_room = respawn_point.get_parent()
-			Global.respawn_point = ray_cast.get_collision_point() - Vector2(0,84)
+			Global.respawn_point = ray_cast.get_collision_point() - Vector2(0,90)
 			print(Global.respawn_point)
 			sprite.play("wave")
 		else:
@@ -17,7 +17,7 @@ func _ready() -> void:
 		)
 
 func _on_body_entered(_body: Node2D) -> void:
-	if Global.respawn_point != ray_cast.get_collision_point() - Vector2(0,84):
+	if Global.respawn_point != ray_cast.get_collision_point() - Vector2(0,90):
 		audio_controller.play_sound(CHECKPOINT_GET,1.0,1.0)
 		var particle_instance = CHECKPOINT_CONFETTI.instantiate()
 		add_child(particle_instance)
