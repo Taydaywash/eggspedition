@@ -109,9 +109,10 @@ animation_player = NodePath("../AnimationPlayer")
 libraries/ = SubResource("AnimationLibrary_c5t2i")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="AnimationPlayer" unique_id=1848048285]
+layer = 2
 
 [node name="Black" type="Panel" parent="AnimationPlayer/CanvasLayer" unique_id=985896954]
-z_index = 4
+z_index = 5
 z_as_relative = false
 offset_left = -64.0
 offset_top = -64.0

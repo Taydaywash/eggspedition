@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var animation_player: AnimationPlayer
 @export var settings_screen: Panel
 @export var audio_controller: AudioController
+@export var confirmation_panel: Panel
 
 @export_category("Sounds")
 @export var confirm_sound: AudioStream
@@ -37,7 +38,16 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if get_tree().paused:
 			visible = false
+			settings_screen.visible = false
+			confirmation_panel.visible = false
 			get_tree().paused = false
 		else:
 			visible = true
 			get_tree().paused = true
+
+
+func _on_main_menu_start_confirmation_pressed() -> void:
+	confirmation_panel.visible = true
+
+func confirmation_panel_back() -> void:
+	confirmation_panel.visible = false
