@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dehv4as28co7u"]
+
+[ext_resource type="Texture2D" uid="uid://dwmxdoc6bu6vn" path="res://Assets/egg.png" id="1_dr1f7"]
+[ext_resource type="Script" uid="uid://c7n5i0ok44m1j" path="res://Assets/particles/particle.gd" id="2_booek"]
+
+[sub_resource type="Curve" id="Curve_c52xd"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -5.538452), 0.0, 0.0, 0, 0, Vector2(1, -16.615356), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_jjonr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.123595595), -1.5165662, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hbwxy"]
+colors = PackedColorArray(0.8646751, 0.86467516, 0.8646751, 1, 1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_j6vd5"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="JumpDust" type="CPUParticles2D" unique_id=2037012427]
+position = Vector2(0, -176)
+amount = 18
+texture = ExtResource("1_dr1f7")
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(0, -1)
+spread = 58.46
+gravity = Vector2(0, 1200)
+initial_velocity_min = 443.19
+initial_velocity_max = 1000.0
+angle_min = -13.1
+angle_max = 21.6
+angle_curve = SubResource("Curve_c52xd")
+scale_amount_min = 0.3
+scale_amount_max = 0.35
+scale_amount_curve = SubResource("Curve_jjonr")
+color = Color(1, 0, 1, 1)
+color_ramp = SubResource("Gradient_hbwxy")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_j6vd5")
+script = ExtResource("2_booek")
+spawn_offset = Vector2(0, 75)
+metadata/_custom_type_script = "uid://c7n5i0ok44m1j"
